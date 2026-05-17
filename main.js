@@ -68,3 +68,18 @@ window.addEventListener('keydown', (e) => {
     closeModal();
   }
 });
+
+// ── SMART EMAIL REDIRECT (GMAIL WEB FOR DESKTOP, MAILTO FOR MOBILE) ──
+const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+emailLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      const email = link.getAttribute('href').replace('mailto:', '');
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+      window.open(gmailUrl, '_blank');
+    }
+  });
+});
