@@ -38,7 +38,7 @@
         hingga sistem IoT — dengan pendekatan yang bersih, responsif, dan berorientasi pengguna.
       </p>
       <div class="hero-cta">
-        <a href="mailto:ziajauhari@gmail.com" class="btn-primary">✉ Hubungi Saya</a>
+        <a href="#" id="btn-hubungi" class="btn-primary">✉ Hubungi Saya</a>
         <a href="#projects" class="btn-secondary">↓ Lihat Proyek</a>
       </div>
     </div>
@@ -47,21 +47,21 @@
       <div class="hero-card">
         <div class="hero-card-title">// Kontak</div>
 
-        <div class="contact-item">
+        <a href="mailto:ziajauhari@gmail.com" class="contact-item">
           <div class="contact-icon">✉</div>
           <div>
             <div class="contact-label">Email</div>
             <div class="contact-value">ziajauhari@gmail.com</div>
           </div>
-        </div>
+        </a>
 
-        <div class="contact-item">
+        <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="contact-item">
           <div class="contact-icon">📱</div>
           <div>
             <div class="contact-label">Phone / WhatsApp</div>
             <div class="contact-value">+62 813 4949 0722</div>
           </div>
-        </div>
+        </a>
 
         <div class="contact-item">
           <div class="contact-icon">📍</div>
@@ -370,6 +370,40 @@
     <div class="footer-name">Zia Jauhari <span>Juanda</span></div>
     <div class="footer-copy">© 2025 · Software Engineer &amp; Web Developer · Samarinda</div>
   </footer>
+
+  <!-- MODAL CONTACT -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close-btn" aria-label="Tutup">✕</button>
+      <div class="modal-header">
+        <h3 class="modal-title">Hubungi Saya</h3>
+        <p class="modal-subtitle">Silakan pilih metode komunikasi yang Anda inginkan</p>
+      </div>
+      <div class="modal-options">
+        <a href="mailto:ziajauhari@gmail.com" class="modal-card option-email">
+          <div class="modal-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="modal-card-info">
+            <span class="modal-card-label">Kirim Email</span>
+            <span class="modal-card-value">ziajauhari@gmail.com</span>
+          </div>
+          <div class="modal-card-arrow">→</div>
+        </a>
+        
+        <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="modal-card option-whatsapp">
+          <div class="modal-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.003-2.637-1.03-5.114-2.909-6.995C16.248 1.866 13.77 .834 11.13.834c-5.439 0-9.865 4.425-9.869 9.869-.001 1.77.464 3.491 1.348 5.021l-.986 3.6 3.693-.97 1.471.874zm11.23-7.947c-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.668.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/></svg>
+          </div>
+          <div class="modal-card-info">
+            <span class="modal-card-label">WhatsApp Chat</span>
+            <span class="modal-card-value">+62 813-4949-0722</span>
+          </div>
+          <div class="modal-card-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 

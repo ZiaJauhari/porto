@@ -255,9 +255,27 @@ nav {
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid rgba(255,255,255,0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .contact-item:last-of-type { border-bottom: none; }
+
+a.contact-item:hover {
+  transform: translateX(4px);
+  color: var(--text);
+}
+
+a.contact-item:hover .contact-icon {
+  background: rgba(200, 242, 90, 0.15);
+  color: var(--accent);
+}
+
+a.contact-item[href*="wa.me"]:hover .contact-icon {
+  background: rgba(90, 242, 200, 0.15);
+  color: var(--accent2);
+}
 
 .contact-icon {
   width: 32px; height: 32px;
@@ -759,4 +777,209 @@ footer {
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CONTACT MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modal-container {
+  background: var(--card-bg);
+  border: 1px solid rgba(200, 242, 90, 0.1);
+  border-radius: 20px;
+  padding: 36px;
+  width: 90%;
+  max-width: 460px;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(200, 242, 90, 0.03);
+  transform: scale(0.92) translateY(15px);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-close:hover {
+  background: rgba(200, 242, 90, 0.1);
+  border-color: var(--border);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.modal-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.modal-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.modal-card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+}
+
+.modal-card-label {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  transition: color 0.3s ease;
+}
+
+.modal-card-value {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: -0.2px;
+}
+
+.modal-card-arrow {
+  font-size: 16px;
+  color: var(--muted);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
+}
+
+/* Hover & Focus state: Email */
+.modal-card.option-email .modal-card-icon {
+  background: rgba(200, 242, 90, 0.06);
+  border: 1px solid rgba(200, 242, 90, 0.12);
+  color: var(--accent);
+}
+
+.modal-card.option-email:hover {
+  background: rgba(200, 242, 90, 0.03);
+  border-color: rgba(200, 242, 90, 0.25);
+  box-shadow: 0 10px 25px rgba(200, 242, 90, 0.05);
+  transform: translateY(-2px);
+}
+
+.modal-card.option-email:hover .modal-card-label {
+  color: var(--accent);
+}
+
+.modal-card.option-email:hover .modal-card-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+/* Hover & Focus state: WhatsApp */
+.modal-card.option-whatsapp .modal-card-icon {
+  background: rgba(90, 242, 200, 0.06);
+  border: 1px solid rgba(90, 242, 200, 0.12);
+  color: var(--accent2);
+}
+
+.modal-card.option-whatsapp:hover {
+  background: rgba(90, 242, 200, 0.03);
+  border-color: rgba(90, 242, 200, 0.25);
+  box-shadow: 0 10px 25px rgba(90, 242, 200, 0.05);
+  transform: translateY(-2px);
+}
+
+.modal-card.option-whatsapp:hover .modal-card-label {
+  color: var(--accent2);
+}
+
+.modal-card.option-whatsapp:hover .modal-card-arrow {
+  color: var(--accent2);
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .modal-container {
+    padding: 28px 24px;
+  }
+  .modal-title {
+    font-size: 20px;
+  }
 }

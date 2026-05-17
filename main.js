@@ -26,3 +26,45 @@ window.addEventListener('scroll', () => {
     a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
   });
 });
+
+// ── CONTACT MODAL CONTROL ──
+const btnHubungi = document.getElementById('btn-hubungi');
+const contactModal = document.getElementById('contact-modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  contactModal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeModal() {
+  contactModal.classList.remove('active');
+  document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Open modal on click
+if (btnHubungi && contactModal) {
+  btnHubungi.addEventListener('click', openModal);
+}
+
+// Close modal on close button click
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', closeModal);
+}
+
+// Close modal when clicking outside the container
+if (contactModal) {
+  contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+      closeModal();
+    }
+  });
+}
+
+// Close modal when pressing Escape key
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && contactModal && contactModal.classList.contains('active')) {
+    closeModal();
+  }
+});
