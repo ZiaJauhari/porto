@@ -585,6 +585,11 @@ section { padding: 100px 60px; }
   letter-spacing: 0.06em;
 }
 
+/* Custom alignment for dashboard screenshot */
+.project-img img[src*="img-monitoring"] {
+  object-position: center;
+}
+
 /* ── EXPERIENCE ── */
 #experience { background: var(--surface); }
 
