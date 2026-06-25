@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zia Jauhari Juanda — Software Engineer & Web Developer. Portfolio profesional menampilkan proyek-proyek web development, IoT, dan pengalaman kerja." />
   <title>Zia Jauhari Juanda — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">ZJJ.</div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
   <!-- NAV -->
-  <nav>
+  <nav id="main-nav">
     <div class="nav-logo">ZJJ.</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#skills">Kemampuan</a></li>
       <li><a href="#projects">Proyek</a></li>
       <li><a href="#experience">Pengalaman</a></li>
       <li><a href="#education">Pendidikan</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
+    <canvas id="hero-particles"></canvas>
     <div class="hero-grid-bg"></div>
     <div class="hero-glow"></div>
+    <div class="hero-glow hero-glow-2"></div>
 
     <div class="hero-left">
       <div class="hero-tag">Open to Work</div>
@@ -31,20 +53,28 @@
         Zia Jauhari
         <span>Juanda</span>
       </h1>
-      <p class="hero-role">Software Engineer &amp; Web Developer</p>
+      <p class="hero-role" id="hero-role">
+        <span class="typing-text"></span>
+        <span class="typing-cursor">|</span>
+      </p>
       <p class="hero-desc">
         Individu yang bersemangat di bidang software engineering dan web development.
         Berpengalaman membangun produk digital modern — dari company profile, e-commerce,
         hingga sistem IoT — dengan pendekatan yang bersih, responsif, dan berorientasi pengguna.
       </p>
       <div class="hero-cta">
-        <a href="#" id="btn-hubungi" class="btn-primary">✉ Hubungi Saya</a>
-        <a href="#projects" class="btn-secondary">↓ Lihat Proyek</a>
+        <a href="#" id="btn-hubungi" class="btn-primary magnetic" data-strength="20">
+          <span class="btn-text">✉ Hubungi Saya</span>
+        </a>
+        <a href="#projects" class="btn-secondary magnetic" data-strength="15">
+          <span class="btn-text">↓ Lihat Proyek</span>
+        </a>
       </div>
     </div>
 
     <div class="hero-right">
-      <div class="hero-card">
+      <div class="hero-card floating">
+        <div class="hero-card-glow"></div>
         <div class="hero-card-title">// Kontak</div>
 
         <a href="mailto:ziajauhari@gmail.com" class="contact-item">
@@ -81,8 +111,9 @@
     <div class="section-label">01 — Kemampuan</div>
     <h2 class="section-title">Stack &amp; <em>Keahlian</em></h2>
 
-    <div class="skills-grid reveal">
-      <div class="skill-card">
+    <div class="skills-grid">
+      <div class="skill-card reveal" data-tilt>
+        <div class="skill-card-glow"></div>
         <div class="skill-card-title">
           <div class="skill-icon">🌐</div>
           Frontend
@@ -96,7 +127,8 @@
         </div>
       </div>
 
-      <div class="skill-card">
+      <div class="skill-card reveal" data-tilt>
+        <div class="skill-card-glow"></div>
         <div class="skill-card-title">
           <div class="skill-icon">⚙️</div>
           Backend &amp; Framework
@@ -109,7 +141,8 @@
         </div>
       </div>
 
-      <div class="skill-card">
+      <div class="skill-card reveal" data-tilt>
+        <div class="skill-card-glow"></div>
         <div class="skill-card-title">
           <div class="skill-icon">🔌</div>
           IoT &amp; Hardware
@@ -122,7 +155,8 @@
         </div>
       </div>
 
-      <div class="skill-card">
+      <div class="skill-card reveal" data-tilt>
+        <div class="skill-card-glow"></div>
         <div class="skill-card-title">
           <div class="skill-icon">🛠</div>
           Tools &amp; Office
@@ -136,7 +170,8 @@
         </div>
       </div>
 
-      <div class="skill-card">
+      <div class="skill-card reveal" data-tilt>
+        <div class="skill-card-glow"></div>
         <div class="skill-card-title">
           <div class="skill-icon">🤝</div>
           Soft Skills
@@ -159,7 +194,7 @@
     <div class="projects-grid">
 
       <!-- PROJECT 3 -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-img">
           <img src="gambar/img-aksepta.png" alt="Aksepta.com — Startup Website">
           <div class="project-overlay"></div>
@@ -180,7 +215,7 @@
       </div>
 
       <!-- PROJECT 4 -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-img">
           <img src="gambar/img-fisheries.png" alt="Fisheries — Katalog & Pemesanan">
           <div class="project-overlay"></div>
@@ -202,7 +237,7 @@
       </div>
 
       <!-- PROJECT 5 -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-img">
           <img src="gambar/img-batuahlines.png" alt="Batuahlines.com — Ekspor Internasional">
           <div class="project-overlay"></div>
@@ -224,7 +259,7 @@
       </div>
 
       <!-- PROJECT 6 -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-img">
           <img src="gambar/img-mvp-lawfirm.png" alt="MVP Lawfirm — Firma Hukum">
           <div class="project-overlay"></div>
@@ -246,7 +281,7 @@
       </div>
 
       <!-- PROJECT 1 -->
-      <div class="project-card reveal">
+      <div class="project-card reveal" data-tilt>
         <div class="project-img">
           <img src="gambar/img-monitoring.png" alt="Air Quality Monitoring System">
           <div class="project-overlay"></div>
@@ -278,6 +313,7 @@
 
     <div class="exp-timeline">
       <div class="exp-item reveal">
+        <div class="exp-dot-glow"></div>
         <div class="exp-period">Januari 2026 — Mei 2026</div>
         <div class="exp-role">Web Developer Intern</div>
         <div class="exp-company">PT Ganesha Arta Adiwangsa</div>
@@ -291,6 +327,7 @@
       </div>
 
       <div class="exp-item reveal">
+        <div class="exp-dot-glow"></div>
         <div class="exp-period">Oktober 2025</div>
         <div class="exp-role">IoT Project Developer</div>
         <div class="exp-company">Politeknik Negeri Samarinda — Proyek Akademik</div>
@@ -307,15 +344,17 @@
     <div class="section-label">04 — Pendidikan</div>
     <h2 class="section-title">Latar Belakang <em>Akademik</em></h2>
 
-    <div class="edu-grid reveal">
-      <div class="edu-card" data-year="22">
+    <div class="edu-grid">
+      <div class="edu-card reveal" data-tilt data-year="22">
+        <div class="edu-card-glow"></div>
         <div class="edu-level">D3 / Politeknik</div>
         <div class="edu-school">Politeknik Negeri Samarinda</div>
         <div class="edu-major">Teknologi Informasi — Teknologi Rekayasa Komputer</div>
         <div class="edu-period">2022 — Sekarang</div>
       </div>
 
-      <div class="edu-card" data-year="19">
+      <div class="edu-card reveal" data-tilt data-year="19">
+        <div class="edu-card-glow"></div>
         <div class="edu-level">SMA</div>
         <div class="edu-school">SMAN 5 Samarinda</div>
         <div class="edu-major">Jurusan Matematika dan Ilmu Pengetahuan Alam</div>
@@ -326,9 +365,18 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-name">Zia Jauhari <span>Juanda</span></div>
-    <div class="footer-copy">© 2025 · Software Engineer &amp; Web Developer · Samarinda</div>
+    <div class="footer-inner">
+      <div class="footer-name">Zia Jauhari <span>Juanda</span></div>
+      <div class="footer-copy">© 2025 · Software Engineer &amp; Web Developer · Samarinda</div>
+    </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" class="back-to-top" aria-label="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <!-- MODAL CONTACT -->
   <div id="contact-modal" class="modal-overlay">
