@@ -439,4 +439,213 @@
     });
   });
 
+  // ── PORTFOLIO PROJECT DETAIL MODAL ──
+  const projectsData = {
+    aksepta: {
+      title: "Aksepta.com — Startup Website",
+      category: "Web · Startup",
+      date: "Jan – Mei 2026",
+      desc: "Aksepta.com adalah platform startup inovatif yang dirancang untuk menjembatani kebutuhan bisnis modern. Kami membangun website ini dari awal, berfokus pada desain UI/UX yang futuristik, responsif, dan interaktif menggunakan standar web modern. Dilengkapi dengan navigasi yang halus, skema warna yang elegan, serta tata letak yang ramah pengguna guna memaksimalkan tingkat konversi pengunjung.",
+      images: [
+        "gambar/img-aksepta.png",
+        "gambar/aksepta (1).png",
+        "gambar/aksepta (2).png",
+        "gambar/aksepta (3).png",
+        "gambar/aksepta (4).png",
+        "gambar/aksepta (5).png",
+        "gambar/aksepta (6).png",
+        "gambar/aksepta (7).png",
+        "gambar/aksepta (8).png"
+      ]
+    },
+    fisheries: {
+      title: "Fisheries — Katalog & Pemesanan",
+      category: "Web · Perikanan",
+      date: "Jan – Mei 2026",
+      desc: "Fisheries merupakan sebuah solusi platform web katalog produk perikanan yang terintegrasi dengan sistem pemesanan online sederhana. Dikembangkan menggunakan PHP dan MySQL, proyek ini memudahkan para nelayan dan distributor perikanan untuk memamerkan produk tangkapan segar mereka secara real-time dan mengelola pemesanan secara efisien langsung dari web.",
+      images: [
+        "gambar/img-fisheries.png"
+      ]
+    },
+    batuahlines: {
+      title: "Batuahlines.com — Ekspor Internasional",
+      category: "Web · Ekspor Internasional",
+      date: "Jan – Mei 2026",
+      desc: "Batuahlines.com adalah website profil perusahaan berskala internasional yang berfokus pada layanan ekspor komoditas unggulan. Situs ini dirancang dengan gaya profesional, performa tinggi, dan struktur SEO yang solid untuk menjangkau klien luar negeri. Menyediakan katalog produk ekspor yang lengkap serta formulir penawaran kerja sama interaktif bagi calon mitra bisnis global.",
+      images: [
+        "gambar/img-batuahlines.png"
+      ]
+    },
+    lawfirm: {
+      title: "MVP Lawfirm — Firma Hukum",
+      category: "Web · Law Firm",
+      date: "Jan – Mei 2026",
+      desc: "MVP Lawfirm adalah situs web profesional kelas premium untuk firma hukum modern. Website ini dirancang dengan estetika formal yang tepercaya dan dilengkapi dengan sistem manajemen konten (CMS) berbasis Laravel. Memuat profil pengacara, spesialisasi hukum, publikasi artikel hukum, serta portal konsultasi online yang aman dan terenkripsi untuk memudahkan interaksi dengan klien.",
+      images: [
+        "gambar/img-mvp-lawfirm.png",
+        "gambar/law firm (1).png",
+        "gambar/law firm (2).png",
+        "gambar/law firm (3).png",
+        "gambar/law firm (4).png",
+        "gambar/law firm (5).png",
+        "gambar/law firm (6).png",
+        "gambar/law firm (7).png",
+        "gambar/law firm (8).png"
+      ]
+    },
+    monitoring: {
+      title: "Air Quality Monitoring System",
+      category: "IoT · Hardware",
+      date: "Oktober 2025",
+      desc: "Sistem pemantauan dan kontrol kualitas udara pada smoking room berbasis Internet of Things. Mengintegrasikan sensor hardware dengan dashboard monitoring real-time untuk pengawasan kualitas udara secara otomatis.",
+      images: [
+        "gambar/img-monitoring.png"
+      ]
+    }
+  };
+
+  const projectModal = document.getElementById('project-modal');
+  const projectModalCloseBtn = document.getElementById('project-modal-close-btn');
+  const projectCardElements = document.querySelectorAll('.project-card');
+
+  const modalMainImg = document.getElementById('project-modal-main-img');
+  const modalThumbnailsContainer = document.getElementById('project-modal-thumbnails');
+  const modalBadge = document.getElementById('project-modal-badge');
+  const modalTitle = document.getElementById('project-modal-title');
+  const modalDate = document.getElementById('project-modal-date');
+  const modalDesc = document.getElementById('project-modal-desc');
+  const prevBtn = document.getElementById('project-gallery-prev');
+  const nextBtn = document.getElementById('project-gallery-next');
+
+  let currentProjectImages = [];
+  let currentImageIndex = 0;
+
+  function updateMainImage(index) {
+    if (currentProjectImages.length === 0) return;
+    currentImageIndex = (index + currentProjectImages.length) % currentProjectImages.length;
+    
+    modalMainImg.style.opacity = '0';
+    modalMainImg.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      modalMainImg.src = currentProjectImages[currentImageIndex];
+      modalMainImg.style.opacity = '1';
+      modalMainImg.style.transform = 'scale(1)';
+    }, 200);
+
+    const thumbnails = modalThumbnailsContainer.querySelectorAll('.project-thumbnail');
+    thumbnails.forEach((thumb, idx) => {
+      if (idx === currentImageIndex) {
+        thumb.classList.add('active');
+        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
+  }
+
+  function openProjectModal(projectKey) {
+    const data = projectsData[projectKey];
+    if (!data) return;
+
+    modalTitle.textContent = data.title;
+    modalBadge.textContent = data.category;
+    modalDate.textContent = data.date;
+    modalDesc.textContent = data.desc;
+
+    currentProjectImages = data.images;
+    currentImageIndex = 0;
+
+    if (currentProjectImages.length > 1) {
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+    } else {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+    }
+
+    modalThumbnailsContainer.innerHTML = '';
+    if (currentProjectImages.length > 1) {
+      currentProjectImages.forEach((imgSrc, idx) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.alt = `${data.title} thumb ${idx + 1}`;
+        thumb.className = 'project-thumbnail';
+        if (idx === 0) thumb.className += ' active';
+        
+        if (!isTouchDevice && dot && ring) {
+          thumb.addEventListener('mouseenter', () => {
+            dot.classList.add('hover');
+            ring.classList.add('hover');
+          });
+          thumb.addEventListener('mouseleave', () => {
+            dot.classList.remove('hover');
+            ring.classList.remove('hover');
+          });
+        }
+
+        thumb.addEventListener('click', () => {
+          updateMainImage(idx);
+        });
+        modalThumbnailsContainer.appendChild(thumb);
+      });
+    }
+
+    modalMainImg.src = currentProjectImages[0];
+    modalMainImg.style.opacity = '1';
+    modalMainImg.style.transform = 'scale(1)';
+
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  projectCardElements.forEach(card => {
+    const projectKey = card.dataset.project;
+    if (projectKey) {
+      card.addEventListener('click', () => {
+        openProjectModal(projectKey);
+      });
+    }
+  });
+
+  if (projectModalCloseBtn) {
+    projectModalCloseBtn.addEventListener('click', closeProjectModal);
+  }
+
+  if (projectModal) {
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeProjectModal();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateMainImage(currentImageIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateMainImage(currentImageIndex + 1);
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (projectModal && projectModal.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeProjectModal();
+      } else if (e.key === 'ArrowLeft') {
+        updateMainImage(currentImageIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        updateMainImage(currentImageIndex + 1);
+      }
+    }
+  });
+
 })();
