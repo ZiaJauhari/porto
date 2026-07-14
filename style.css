@@ -1486,7 +1486,7 @@ footer {
 }
 
 /* ── PROJECT DETAILS MODAL ── */
-.project-modal-container {
+.modal-container.project-modal-container {
   max-width: 860px;
   padding: 40px;
   overflow: hidden;
@@ -1494,7 +1494,7 @@ footer {
 
 .project-modal-content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 30px;
   align-items: start;
 }
@@ -1503,6 +1503,7 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
 }
 
 .project-modal-main-img-container {
@@ -1661,7 +1662,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .project-modal-container {
+  .modal-container.project-modal-container {
     padding: 30px 24px;
     max-height: 85vh;
     overflow-y: auto;
