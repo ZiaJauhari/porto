@@ -1661,6 +1661,10 @@ footer {
   color: #a0a0b5;
 }
 
+.project-modal-link-container {
+  margin-top: 24px;
+}
+
 @media (max-width: 768px) {
   .modal-container.project-modal-container {
     padding: 30px 24px;

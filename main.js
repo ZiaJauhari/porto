@@ -446,6 +446,7 @@
       category: "Web · Startup",
       date: "Jan – Mei 2026",
       desc: "Aksepta.com adalah platform startup inovatif yang dirancang untuk menjembatani kebutuhan bisnis modern. Kami membangun website ini dari awal, berfokus pada desain UI/UX yang futuristik, responsif, dan interaktif menggunakan standar web modern. Dilengkapi dengan navigasi yang halus, skema warna yang elegan, serta tata letak yang ramah pengguna guna memaksimalkan tingkat konversi pengunjung.",
+      link: "https://aksepta.com/",
       images: [
         "gambar/img-aksepta.png",
         "gambar/aksepta (1).png",
@@ -481,6 +482,7 @@
       category: "Web · Law Firm",
       date: "Jan – Mei 2026",
       desc: "MVP Lawfirm adalah situs web profesional kelas premium untuk firma hukum modern. Website ini dirancang dengan estetika formal yang tepercaya dan dilengkapi dengan sistem manajemen konten (CMS) berbasis Laravel. Memuat profil pengacara, spesialisasi hukum, publikasi artikel hukum, serta portal konsultasi online yang aman dan terenkripsi untuk memudahkan interaksi dengan klien.",
+      link: "https://lime-ibis-885634.hostingersite.com/",
       images: [
         "gambar/img-mvp-lawfirm.png",
         "gambar/law firm (1).png",
@@ -516,6 +518,8 @@
   const modalDesc = document.getElementById('project-modal-desc');
   const prevBtn = document.getElementById('project-gallery-prev');
   const nextBtn = document.getElementById('project-gallery-next');
+  const modalLinkContainer = document.getElementById('project-modal-link-container');
+  const modalLink = document.getElementById('project-modal-link');
 
   let currentProjectImages = [];
   let currentImageIndex = 0;
@@ -551,6 +555,13 @@
     modalBadge.textContent = data.category;
     modalDate.textContent = data.date;
     modalDesc.textContent = data.desc;
+
+    if (data.link) {
+      modalLink.href = data.link;
+      modalLinkContainer.style.display = 'block';
+    } else {
+      modalLinkContainer.style.display = 'none';
+    }
 
     currentProjectImages = data.images;
     currentImageIndex = 0;
