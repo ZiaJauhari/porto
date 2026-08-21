@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Zia Jauhari Juanda — Software Engineer & Web Developer. Portfolio profesional menampilkan proyek-proyek web development, IoT, dan pengalaman kerja." />
-  <title>Zia Jauhari Juanda — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <meta name="description" content="Zia Jauhari Juanda — Software Engineer & Web Developer. Portfolio profesional menampilkan proyek web development, IoT integration, dan pengalaman kerja." />
+  <title>Zia Jauhari Juanda — Software Engineer & Web Developer</title>
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- PRELOADER -->
-  <div id="preloader">
+  <div id="preloader" aria-hidden="true">
     <div class="preloader-inner">
-      <div class="preloader-logo">ZJJ.</div>
+      <div class="preloader-logo">ZJJ</div>
       <div class="preloader-bar">
         <div class="preloader-bar-fill"></div>
       </div>
@@ -24,392 +29,580 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
 
-  <!-- NAV -->
-  <nav id="main-nav">
-    <div class="nav-logo">ZJJ.</div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#skills">Kemampuan</a></li>
-      <li><a href="#projects">Proyek</a></li>
-      <li><a href="#experience">Pengalaman</a></li>
-      <li><a href="#education">Pendidikan</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+  <!-- HEADER / NAV -->
+  <header id="site-header">
+    <nav id="main-nav" class="nav-container">
+      <a href="#" class="nav-brand" aria-label="Beranda Zia Jauhari Juanda">
+        <span class="brand-initials">ZJJ</span>
+        <span class="brand-dot">.</span>
+      </a>
 
-  <!-- HERO -->
-  <section id="hero">
-    <canvas id="hero-particles"></canvas>
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow hero-glow-2"></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#education">Pendidikan</a></li>
+      </ul>
 
-    <div class="hero-left">
-      <div class="hero-tag">Open to Work</div>
-      <h1 class="hero-name">
-        Zia Jauhari
-        <span>Juanda</span>
-      </h1>
-      <p class="hero-role" id="hero-role">
-        <span class="typing-text"></span>
-        <span class="typing-cursor">|</span>
-      </p>
-      <p class="hero-desc">
-        Individu yang bersemangat di bidang software engineering dan web development.
-        Berpengalaman membangun produk digital modern — dari company profile, e-commerce,
-        hingga sistem IoT — dengan pendekatan yang bersih, responsif, dan berorientasi pengguna.
-      </p>
-      <div class="hero-cta">
-        <a href="#" id="btn-hubungi" class="btn-primary magnetic" data-strength="20">
-          <span class="btn-text">✉ Hubungi Saya</span>
-        </a>
-        <a href="#projects" class="btn-secondary magnetic" data-strength="15">
-          <span class="btn-text">↓ Lihat Proyek</span>
-        </a>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Ubah Tema (Dark/Light Mode)">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#" id="btn-nav-contact" class="btn-sm btn-outline">Kontak</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu Navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
+    </nav>
+  </header>
 
-    <div class="hero-right">
-      <div class="hero-card floating">
-        <div class="hero-card-glow"></div>
-        <div class="hero-card-title">// Kontak</div>
-
-        <a href="mailto:ziajauhari@gmail.com" class="contact-item">
-          <div class="contact-icon">✉</div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value">ziajauhari@gmail.com</div>
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="status-indicator"></span>
+            <span>Tersedia untuk Peluang Baru & Proyek</span>
           </div>
-        </a>
 
-        <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div>
-            <div class="contact-label">Phone / WhatsApp</div>
-            <div class="contact-value">+62 813 4949 0722</div>
+          <h1 class="hero-title">
+            Zia Jauhari <span class="text-highlight">Juanda</span>
+          </h1>
+
+          <div class="hero-subtitle">
+            <span class="typing-text"></span>
+            <span class="typing-cursor">|</span>
           </div>
-        </a>
 
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div>
-            <div class="contact-label">Lokasi</div>
-            <div class="contact-value">Samarinda, Kalimantan Timur</div>
+          <p class="hero-description">
+            Software Engineer & Web Developer yang berfokus membangun aplikasi web modern, 
+            sistem berbasis PHP/Laravel, dan integrasi IoT dengan pendekatan desain yang bersih, 
+            performa tinggi, serta pengalamanan pengguna yang intuitif.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#" id="btn-hubungi" class="btn btn-primary">
+              <span>✉ Hubungi Saya</span>
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              <span>Lihat Proyek ↓</span>
+            </a>
           </div>
         </div>
 
-        <div class="status-badge">Tersedia untuk peluang baru</div>
-      </div>
-    </div>
-  </section>
+        <div class="hero-aside">
+          <div class="profile-card">
+            <div class="profile-card-header">
+              <div class="profile-card-badge">// Ringkasan Kontak</div>
+            </div>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">01 — Kemampuan</div>
-    <h2 class="section-title">Stack &amp; <em>Keahlian</em></h2>
+            <div class="profile-contact-list">
+              <a href="mailto:ziajauhari@gmail.com" class="profile-contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">ziajauhari@gmail.com</span>
+                </div>
+              </a>
 
-    <div class="skills-grid">
-      <div class="skill-card reveal" data-tilt>
-        <div class="skill-card-glow"></div>
-        <div class="skill-card-title">
-          <div class="skill-icon">🌐</div>
-          Frontend
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Responsive Design</span>
-          <span class="skill-tag">UI/UX</span>
-        </div>
-      </div>
+              <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="profile-contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">WhatsApp</span>
+                  <span class="contact-value">+62 813 4949 0722</span>
+                </div>
+              </a>
 
-      <div class="skill-card reveal" data-tilt>
-        <div class="skill-card-glow"></div>
-        <div class="skill-card-title">
-          <div class="skill-icon">⚙️</div>
-          Backend &amp; Framework
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">PHP</span>
-          <span class="skill-tag">Laravel</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">MySQL</span>
-        </div>
-      </div>
+              <div class="profile-contact-item">
+                <div class="contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Lokasi</span>
+                  <span class="contact-value">Samarinda, Kalimantan Timur</span>
+                </div>
+              </div>
+            </div>
 
-      <div class="skill-card reveal" data-tilt>
-        <div class="skill-card-glow"></div>
-        <div class="skill-card-title">
-          <div class="skill-icon">🔌</div>
-          IoT &amp; Hardware
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Internet of Things</span>
-          <span class="skill-tag">Real-time Monitoring</span>
-          <span class="skill-tag">Hardware Integration</span>
-          <span class="skill-tag">Jaringan Komputer</span>
+            <div class="profile-card-footer">
+              <span class="tech-tag">Full-Stack Web</span>
+              <span class="tech-tag">IoT Hardware</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="skill-card reveal" data-tilt>
-        <div class="skill-card-glow"></div>
-        <div class="skill-card-title">
-          <div class="skill-icon">🛠</div>
-          Tools &amp; Office
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">01 — Tentang</span>
+          <h2 class="section-title">Profil &amp; Pendekatan Kerja</h2>
         </div>
-        <div class="skill-tags">
-          <span class="skill-tag">VS Code</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Microsoft Word</span>
-          <span class="skill-tag">Excel</span>
-          <span class="skill-tag">PowerPoint</span>
-        </div>
-      </div>
 
-      <div class="skill-card reveal" data-tilt>
-        <div class="skill-card-glow"></div>
-        <div class="skill-card-title">
-          <div class="skill-icon">🤝</div>
-          Soft Skills
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">Teamwork</span>
-          <span class="skill-tag">Team Management</span>
-          <span class="skill-tag">Komunikasi Efektif</span>
-          <span class="skill-tag">Adaptif</span>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="about-grid reveal">
+          <div class="about-main">
+            <p class="about-lead">
+              Saya adalah pengembang perangkat lunak yang berfokus pada pembuatan solusi digital yang fungsional, terstruktur, dan mudah digunakan.
+            </p>
+            <p class="about-text">
+              Dengan latar belakang pendidikan Rekayasa Komputer di Politeknik Negeri Samarinda serta pengalaman mengembangkan berbagai sistem web perusahaan (company profile, e-commerce, hingga portal hukum), saya memadukan kemampuan pemecahan masalah dengan perhatian penuh pada kualitas kode.
+            </p>
+            <p class="about-text">
+              Selain pengembanan web, saya juga berpengalaman dalam pengintegrasian perangkat keras IoT untuk sistem pemantauan real-time.
+            </p>
+          </div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label">02 — Proyek</div>
-    <h2 class="section-title">Karya &amp; <em>Proyek</em></h2>
-
-    <div class="projects-grid">
-
-      <!-- PROJECT 3 -->
-      <div class="project-card reveal" data-project="aksepta" data-tilt>
-        <div class="project-img">
-          <img src="gambar/img-aksepta.png" alt="Aksepta.com — Startup Website">
-          <div class="project-overlay"></div>
-          <span class="project-type-badge">Web · Startup</span>
-        </div>
-        <div class="project-body">
-          <div class="project-date">Jan – Mei 2026</div>
-          <div class="project-name">Aksepta.com — Startup Website</div>
-          <p class="project-desc">
-            Pengembangan website startup dari nol: analisis kebutuhan, perancangan UI/UX, hingga implementasi frontend yang bersih dan modern.
-          </p>
+          <div class="about-pillars">
+            <div class="pillar-card">
+              <div class="pillar-num">01</div>
+              <h3 class="pillar-title">Clean Code & Architecture</h3>
+              <p class="pillar-desc">Menulis kode yang rapi, terstruktur, dan mudah dirawat dalam jangka panjang.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-num">02</div>
+              <h3 class="pillar-title">Responsive & Accessible UX</h3>
+              <p class="pillar-desc">Menjamin tampilan yang optimal dan responsif di seluruh ukuran layar perangkat.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-num">03</div>
+              <h3 class="pillar-title">Full Lifecycle Integration</h3>
+              <p class="pillar-desc">Pengembangan menyeluruh mulai dari analisis kebutuhan, UI/UX, backend logic, hingga deployment.</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- PROJECT 4 -->
-      <div class="project-card reveal" data-project="fisheries" data-tilt>
-        <div class="project-img">
-          <img src="gambar/img-fisheries.png" alt="Fisheries — Katalog & Pemesanan">
-          <div class="project-overlay"></div>
-          <span class="project-type-badge">Web · Perikanan</span>
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">02 — Keahlian</span>
+          <h2 class="section-title">Teknologi &amp; Spesialisasi</h2>
         </div>
-        <div class="project-body">
-          <div class="project-date">Jan – Mei 2026</div>
-          <div class="project-name">Fisheries — Katalog &amp; Pemesanan</div>
-          <p class="project-desc">
-            Website katalog produk perikanan dilengkapi sistem pemesanan sederhana berbasis web. Tampilan bersih dan navigasi yang mudah.
-          </p>
+
+        <div class="skills-categories reveal">
+          <div class="skill-category">
+            <div class="category-header">
+              <h3 class="category-title">Frontend Development</h3>
+              <span class="category-subtitle">UI Structure & Logic</span>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3 / Modern Styling</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">Responsive Web Design</span>
+              <span class="skill-pill">UI/UX Principles</span>
+              <span class="skill-pill">DOM Manipulation</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="category-header">
+              <h3 class="category-title">Backend &amp; Framework</h3>
+              <span class="category-subtitle">Server Logic & Database</span>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">PHP</span>
+              <span class="skill-pill">Laravel</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">MySQL Database</span>
+              <span class="skill-pill">RESTful Architecture</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="category-header">
+              <h3 class="category-title">IoT &amp; Hardware System</h3>
+              <span class="category-subtitle">Hardware & Monitoring</span>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Internet of Things (IoT)</span>
+              <span class="skill-pill">Real-time Monitoring</span>
+              <span class="skill-pill">Hardware Sensor Integration</span>
+              <span class="skill-pill">Jaringan Komputer</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="category-header">
+              <h3 class="category-title">Tools &amp; Workflow</h3>
+              <span class="category-subtitle">Development Ecosystem</span>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Git / GitHub</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">Microsoft Office Suite</span>
+              <span class="skill-pill">Debugging Tools</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="category-header">
+              <h3 class="category-title">Soft Skills &amp; Collaboration</h3>
+              <span class="category-subtitle">Professional Work Ethic</span>
+            </div>
+            <div class="skill-pill-list">
+              <span class="skill-pill">Kerja Sama Tim</span>
+              <span class="skill-pill">Manajemen Proyek Tim</span>
+              <span class="skill-pill">Komunikasi Efektif</span>
+              <span class="skill-pill">Adaptasi Cepat</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- PROJECT 5 -->
-      <div class="project-card reveal" data-project="batuahlines" data-tilt>
-        <div class="project-img">
-          <img src="gambar/img-batuahlines.png" alt="Batuahlines.com — Ekspor Internasional">
-          <div class="project-overlay"></div>
-          <span class="project-type-badge">Web · Ekspor Internasional</span>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">03 — Proyek</span>
+          <h2 class="section-title">Portofolio Karya Lengkap</h2>
         </div>
-        <div class="project-body">
-          <div class="project-date">Jan – Mei 2026</div>
-          <div class="project-name">Batuahlines.com — Ekspor Internasional</div>
-          <p class="project-desc">
-            Website perusahaan ekspor internasional dengan fitur katalog produk lengkap dan formulir penawaran kerja sama yang profesional.
-          </p>
+
+        <!-- FEATURED PROJECTS -->
+        <div class="featured-projects-wrapper">
+          <div class="sub-section-title">Proyek Unggulan</div>
+
+          <div class="featured-projects-grid">
+            
+            <!-- FEATURED 1: AKSEPTA -->
+            <article class="featured-card reveal" data-project="aksepta">
+              <div class="featured-img-box">
+                <img src="gambar/img-aksepta.png" alt="Aksepta.com — Startup Website Preview" loading="lazy">
+                <span class="badge-tag">Web · Startup</span>
+              </div>
+              <div class="featured-body">
+                <div class="card-meta">
+                  <span class="project-date">Januari – Mei 2026</span>
+                  <span class="role-badge">Frontend & UI/UX</span>
+                </div>
+                <h3 class="project-title">Aksepta.com — Startup Website</h3>
+                <p class="project-summary">
+                  Pengembangan website startup komprehensif mulai dari analisis kebutuhan bisnis, perancangan UI/UX yang modern, hingga implementasi frontend yang responsif dan berkinerja tinggi.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-item">HTML5</span>
+                  <span class="tech-item">CSS Grid/Flexbox</span>
+                  <span class="tech-item">JavaScript</span>
+                  <span class="tech-item">UI/UX Design</span>
+                </div>
+                <div class="card-action">
+                  <span class="action-link">Lihat Detail &amp; Galeri →</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- FEATURED 2: LAWFIRM -->
+            <article class="featured-card reveal" data-project="lawfirm">
+              <div class="featured-img-box">
+                <img src="gambar/img-mvp-lawfirm.png" alt="MVP Lawfirm — Firma Hukum Preview" loading="lazy">
+                <span class="badge-tag">Web · Law Firm</span>
+              </div>
+              <div class="featured-body">
+                <div class="card-meta">
+                  <span class="project-date">Januari – Mei 2026</span>
+                  <span class="role-badge">Full-Stack Development</span>
+                </div>
+                <h3 class="project-title">MVP Lawfirm — Portal Firma Hukum</h3>
+                <p class="project-summary">
+                  Website firma hukum profesional berstandar tinggi dengan tampilan formal. Memuat direktori layanan hukum, profil pengacara, portal artikel hukum, serta fitur konsultasi online.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-item">Laravel</span>
+                  <span class="tech-item">PHP</span>
+                  <span class="tech-item">MySQL</span>
+                  <span class="tech-item">Tailwind/CSS</span>
+                </div>
+                <div class="card-action">
+                  <span class="action-link">Lihat Detail &amp; Galeri →</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- OTHER PROJECTS GRID -->
+        <div class="other-projects-wrapper">
+          <div class="sub-section-title">Proyek Lainnya</div>
+
+          <div class="compact-projects-grid">
+            
+            <!-- PROJECT: FISHERIES -->
+            <article class="compact-card reveal" data-project="fisheries">
+              <div class="compact-img-box">
+                <img src="gambar/img-fisheries.png" alt="Fisheries — Katalog & Pemesanan" loading="lazy">
+                <span class="badge-tag">Web · Perikanan</span>
+              </div>
+              <div class="compact-body">
+                <span class="project-date">Jan – Mei 2026</span>
+                <h3 class="compact-title">Fisheries — Katalog &amp; Pemesanan</h3>
+                <p class="compact-desc">
+                  Platform katalog produk perikanan terintegrasi sistem pemesanan web sederhana dengan navigasi intuitif.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-item">PHP</span>
+                  <span class="tech-item">MySQL</span>
+                  <span class="tech-item">JavaScript</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT: BATUAHLINES -->
+            <article class="compact-card reveal" data-project="batuahlines">
+              <div class="compact-img-box">
+                <img src="gambar/img-batuahlines.png" alt="Batuahlines.com — Ekspor Internasional" loading="lazy">
+                <span class="badge-tag">Web · International Export</span>
+              </div>
+              <div class="compact-body">
+                <span class="project-date">Jan – Mei 2026</span>
+                <h3 class="compact-title">Batuahlines.com — Perusahaan Ekspor</h3>
+                <p class="compact-desc">
+                  Website perusahaan ekspor komoditas internasional dengan katalog produk komprehensif dan formulir penawaran kerja sama.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-item">HTML/CSS</span>
+                  <span class="tech-item">JavaScript</span>
+                  <span class="tech-item">SEO Standard</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT: AIR QUALITY MONITORING -->
+            <article class="compact-card reveal" data-project="monitoring">
+              <div class="compact-img-box">
+                <img src="gambar/img-monitoring.png" alt="Air Quality Monitoring System" loading="lazy">
+                <span class="badge-tag">IoT · Hardware</span>
+              </div>
+              <div class="compact-body">
+                <span class="project-date">Oktober 2025</span>
+                <h3 class="compact-title">Air Quality Monitoring System</h3>
+                <p class="compact-desc">
+                  Sistem IoT untuk pemantauan dan kontrol kualitas udara pada smoking room dengan dashboard monitoring real-time.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tech-item">IoT Hardware</span>
+                  <span class="tech-item">Sensor Integration</span>
+                  <span class="tech-item">Dashboard Web</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">04 — Pengalaman</span>
+          <h2 class="section-title">Riwayat Kerja &amp; Proyek</h2>
+        </div>
+
+        <div class="timeline reveal">
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-period">Januari 2026 — Mei 2026</span>
+                <span class="timeline-tag">Magang / Internship</span>
+              </div>
+              <h3 class="timeline-role">Web Developer Intern</h3>
+              <div class="timeline-company">PT Ganesha Arta Adiwangsa</div>
+              <ul class="timeline-bullets">
+                <li>Mengembangkan berbagai website company profile dan portal semi-e-commerce dengan standar desain modern dan responsif.</li>
+                <li>Membangun platform startup <strong>Aksepta.com</strong> mulai dari tahap analisis sistem, perancangan UI/UX, hingga penulisan kode frontend.</li>
+                <li>Membuat website <strong>Fisheries</strong> untuk manajemen katalog produk perikanan dan alur pemesanan web.</li>
+                <li>Mengembangkan website ekspor <strong>Batuahlines.com</strong> dengan katalog produk interaktif dan formulir penawaran bisnis.</li>
+                <li>Membangun sistem <strong>MVP Lawfirm</strong> untuk kebutuhan profil firma hukum, publikasi artikel, dan konsultasi online.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-period">Oktober 2025</span>
+                <span class="timeline-tag">Academic Project</span>
+              </div>
+              <h3 class="timeline-role">IoT Project Developer</h3>
+              <div class="timeline-company">Politeknik Negeri Samarinda</div>
+              <ul class="timeline-bullets">
+                <li>Merancang dan mengimplementasikan sistem pemantauan kualitas udara (smoking room) berbasis IoT secara real-time.</li>
+                <li>Mengintegrasikan sensor kualitas udara fisik dengan platform dashboard pemantauan web digital.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- PROJECT 6 -->
-      <div class="project-card reveal" data-project="lawfirm" data-tilt>
-        <div class="project-img">
-          <img src="gambar/img-mvp-lawfirm.png" alt="MVP Lawfirm — Firma Hukum">
-          <div class="project-overlay"></div>
-          <span class="project-type-badge">Web · Law Firm</span>
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">05 — Pendidikan</span>
+          <h2 class="section-title">Latar Belakang Akademik</h2>
         </div>
-        <div class="project-body">
-          <div class="project-date">Jan – Mei 2026</div>
-          <div class="project-name">MVP Lawfirm — Firma Hukum</div>
-          <p class="project-desc">
-            Website firma hukum dengan tampilan formal dan profesional. Memuat layanan hukum, profil pengacara, artikel, dan fitur konsultasi online.
-          </p>
+
+        <div class="education-grid reveal">
+          <div class="edu-card">
+            <div class="edu-header">
+              <span class="edu-level">Diploma 3 (D3)</span>
+              <span class="edu-year">2022 — Sekarang</span>
+            </div>
+            <h3 class="edu-institution">Politeknik Negeri Samarinda</h3>
+            <div class="edu-field">Jurusan Teknologi Informasi</div>
+            <div class="edu-subfield">Program Studi Teknologi Rekayasa Komputer</div>
+            <p class="edu-desc">
+              Fokus pembelajaran pada pengembangan perangkat lunak, sistem basis data, pemrograman web, serta arsitektur jaringan dan sistem berbasis IoT.
+            </p>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-header">
+              <span class="edu-level">Sekolah Menengah Atas (SMA)</span>
+              <span class="edu-year">2019 — 2022</span>
+            </div>
+            <h3 class="edu-institution">SMAN 5 Samarinda</h3>
+            <div class="edu-field">Matematika dan Ilmu Pengetahuan Alam (MIPA)</div>
+            <p class="edu-desc">
+              Pendidikan menengah atas dengan fokus pada ilmu sains dasar, logika matematika, dan fondasi analitis pemecahan masalah.
+            </p>
+          </div>
         </div>
       </div>
-
-      <!-- PROJECT 1 -->
-      <div class="project-card reveal" data-project="monitoring" data-tilt>
-        <div class="project-img">
-          <img src="gambar/img-monitoring.png" alt="Air Quality Monitoring System">
-          <div class="project-overlay"></div>
-          <span class="project-type-badge">IoT · Hardware</span>
-        </div>
-        <div class="project-body">
-          <div class="project-date">Oktober 2025</div>
-          <div class="project-name">Air Quality Monitoring System</div>
-          <p class="project-desc">
-            Sistem pemantauan dan kontrol kualitas udara pada smoking room berbasis Internet of Things.
-            Mengintegrasikan sensor hardware dengan dashboard monitoring real-time untuk pengawasan kualitas udara secara otomatis.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">03 — Pengalaman</div>
-    <h2 class="section-title">Riwayat <em>Kerja</em></h2>
-
-    <div class="exp-timeline">
-      <div class="exp-item reveal">
-        <div class="exp-dot-glow"></div>
-        <div class="exp-period">Januari 2026 — Mei 2026</div>
-        <div class="exp-role">Web Developer Intern</div>
-        <div class="exp-company">PT Ganesha Arta Adiwangsa</div>
-        <ul class="exp-bullets">
-          <li>Mengembangkan website company profile dan semi e-commerce dengan desain responsif dan profesional.</li>
-          <li>Membangun website startup aksepta.com mulai dari analisis kebutuhan, desain UI/UX, hingga implementasi frontend.</li>
-          <li>Membuat website Fisheries untuk katalog produk perikanan dan sistem pemesanan berbasis web.</li>
-          <li>Mengembangkan batuahlines.com untuk perusahaan ekspor internasional dengan katalog dan formulir kerja sama.</li>
-          <li>Membangun MVP Lawfirm dengan fitur layanan hukum, profil pengacara, dan konsultasi online.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-dot-glow"></div>
-        <div class="exp-period">Oktober 2025</div>
-        <div class="exp-role">IoT Project Developer</div>
-        <div class="exp-company">Politeknik Negeri Samarinda — Proyek Akademik</div>
-        <ul class="exp-bullets">
-          <li>Merancang dan membangun sistem pemantauan kualitas udara berbasis IoT secara real-time.</li>
-          <li>Mengintegrasikan perangkat keras sensor dengan sistem monitoring digital.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-label">04 — Pendidikan</div>
-    <h2 class="section-title">Latar Belakang <em>Akademik</em></h2>
-
-    <div class="edu-grid">
-      <div class="edu-card reveal" data-tilt data-year="22">
-        <div class="edu-card-glow"></div>
-        <div class="edu-level">D3 / Politeknik</div>
-        <div class="edu-school">Politeknik Negeri Samarinda</div>
-        <div class="edu-major">Teknologi Informasi — Teknologi Rekayasa Komputer</div>
-        <div class="edu-period">2022 — Sekarang</div>
-      </div>
-
-      <div class="edu-card reveal" data-tilt data-year="19">
-        <div class="edu-card-glow"></div>
-        <div class="edu-level">SMA</div>
-        <div class="edu-school">SMAN 5 Samarinda</div>
-        <div class="edu-major">Jurusan Matematika dan Ilmu Pengetahuan Alam</div>
-        <div class="edu-period">2019 — 2022</div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-name">Zia Jauhari <span>Juanda</span></div>
-      <div class="footer-copy">© 2025 · Software Engineer &amp; Web Developer · Samarinda</div>
+  <footer id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand-col">
+        <div class="footer-logo">Zia Jauhari <span class="text-highlight">Juanda</span></div>
+        <p class="footer-tagline">Software Engineer &amp; Web Developer berdomisili di Samarinda, Kalimantan Timur.</p>
+      </div>
+
+      <div class="footer-nav-col">
+        <span class="footer-nav-title">Navigasi Halaman</span>
+        <ul class="footer-links">
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#skills">Keahlian</a></li>
+          <li><a href="#projects">Proyek</a></li>
+          <li><a href="#experience">Pengalaman</a></li>
+          <li><a href="#education">Pendidikan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Zia Jauhari Juanda. Hak cipta dilindungi undang-undang.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- BACK TO TOP -->
-  <button id="back-to-top" class="back-to-top" aria-label="Kembali ke atas">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- BACK TO TOP BUTTON -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Kembali ke bagian atas halaman">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
-  <!-- MODAL CONTACT -->
-  <div id="contact-modal" class="modal-overlay">
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-contact-title">
     <div class="modal-container">
-      <button class="modal-close" id="modal-close-btn" aria-label="Tutup">✕</button>
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Tutup Dialog Kontak">✕</button>
+      
       <div class="modal-header">
-        <h3 class="modal-title">Hubungi Saya</h3>
-        <p class="modal-subtitle">Silakan pilih metode komunikasi yang Anda inginkan</p>
+        <h3 id="modal-contact-title" class="modal-title">Hubungi Saya</h3>
+        <p class="modal-subtitle">Silakan pilih saluran komunikasi yang nyaman bagi Anda:</p>
       </div>
+
       <div class="modal-options">
-        <a href="mailto:ziajauhari@gmail.com" class="modal-card option-email">
-          <div class="modal-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <a href="mailto:ziajauhari@gmail.com" class="modal-option-card option-email">
+          <div class="option-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <div class="modal-card-info">
-            <span class="modal-card-label">Kirim Email</span>
-            <span class="modal-card-value">ziajauhari@gmail.com</span>
+          <div class="option-info">
+            <span class="option-label">Email Langsung</span>
+            <span class="option-value">ziajauhari@gmail.com</span>
           </div>
-          <div class="modal-card-arrow">→</div>
+          <span class="option-arrow">→</span>
         </a>
-        
-        <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="modal-card option-whatsapp">
-          <div class="modal-card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.003-2.637-1.03-5.114-2.909-6.995C16.248 1.866 13.77 .834 11.13.834c-5.439 0-9.865 4.425-9.869 9.869-.001 1.77.464 3.491 1.348 5.021l-.986 3.6 3.693-.97 1.471.874zm11.23-7.947c-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.668.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/></svg>
+
+        <a href="https://wa.me/6281349490722" target="_blank" rel="noopener noreferrer" class="modal-option-card option-whatsapp">
+          <div class="option-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.003-2.637-1.03-5.114-2.909-6.995C16.248 1.866 13.77 .834 11.13.834c-5.439 0-9.865 4.425-9.869 9.869-.001 1.77.464 3.491 1.348 5.021l-.986 3.6 3.693-.97 1.471.874zm11.23-7.947c-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.668.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/></svg>
           </div>
-          <div class="modal-card-info">
-            <span class="modal-card-label">WhatsApp Chat</span>
-            <span class="modal-card-value">+62 813-4949-0722</span>
+          <div class="option-info">
+            <span class="option-label">WhatsApp Chat</span>
+            <span class="option-value">+62 813-4949-0722</span>
           </div>
-          <div class="modal-card-arrow">→</div>
+          <span class="option-arrow">→</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- MODAL PROJECT -->
-  <div id="project-modal" class="modal-overlay">
+  <!-- PROJECT DETAIL MODAL -->
+  <div id="project-modal" class="modal-overlay" aria-hidden="true" role="dialog">
     <div class="modal-container project-modal-container">
-      <button class="modal-close" id="project-modal-close-btn" aria-label="Tutup">✕</button>
-      
+      <button class="modal-close-btn" id="project-modal-close-btn" aria-label="Tutup Detail Proyek">✕</button>
+
       <div class="project-modal-content">
         <div class="project-modal-gallery">
           <div class="project-modal-main-img-container">
-            <button class="gallery-nav-btn prev-btn" id="project-gallery-prev" aria-label="Sebelumnya">‹</button>
-            <img id="project-modal-main-img" src="" alt="Project Image">
-            <button class="gallery-nav-btn next-btn" id="project-gallery-next" aria-label="Berikutnya">›</button>
+            <button class="gallery-nav-btn prev-btn" id="project-gallery-prev" aria-label="Gambar Sebelumnya">‹</button>
+            <img id="project-modal-main-img" src="" alt="Pratinjau Proyek">
+            <button class="gallery-nav-btn next-btn" id="project-gallery-next" aria-label="Gambar Berikutnya">›</button>
           </div>
           <div id="project-modal-thumbnails" class="project-modal-thumbnails">
-            <!-- Dynamic thumbnails will be generated by JS -->
+            <!-- Dynamic thumbnails via JS -->
           </div>
         </div>
-        
+
         <div class="project-modal-details">
-          <span id="project-modal-badge" class="project-type-badge"></span>
+          <span id="project-modal-badge" class="badge-tag"></span>
           <h3 id="project-modal-title" class="project-modal-title"></h3>
           <div id="project-modal-date" class="project-date"></div>
           <div class="project-modal-divider"></div>
-          <div class="project-modal-section-title">Ringkasan Proyek</div>
+          <div class="project-modal-section-title">Deskripsi Proyek</div>
           <p id="project-modal-desc" class="project-modal-desc"></p>
           <div id="project-modal-link-container" class="project-modal-link-container">
-            <a id="project-modal-link" href="" target="_blank" rel="noopener noreferrer" class="btn-primary project-modal-link-btn">
-              <span class="btn-text">↗ Kunjungi Situs</span>
+            <a id="project-modal-link" href="" target="_blank" rel="noopener noreferrer" class="btn btn-primary project-modal-link-btn">
+              <span>↗ Kunjungi Website Live</span>
             </a>
           </div>
         </div>
@@ -418,6 +611,6 @@
   </div>
 
   <script src="main.js"></script>
-
 </body>
 </html>
+
