@@ -346,6 +346,7 @@
 
   const projectModal = document.getElementById('project-modal');
   const projectModalCloseBtn = document.getElementById('project-modal-close-btn');
+  const projectModalSecondaryCloseBtn = document.getElementById('project-modal-close-secondary-btn');
   const projectCards = document.querySelectorAll('[data-project]');
 
   const modalMainImg = document.getElementById('project-modal-main-img');
@@ -429,6 +430,9 @@
       modalMainImg.style.opacity = '1';
     }
 
+    const modalContainer = projectModal.querySelector('.modal-container');
+    if (modalContainer) modalContainer.scrollTop = 0;
+
     projectModal.classList.add('active');
     projectModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -450,6 +454,7 @@
   });
 
   if (projectModalCloseBtn) projectModalCloseBtn.addEventListener('click', closeProjectModal);
+  if (projectModalSecondaryCloseBtn) projectModalSecondaryCloseBtn.addEventListener('click', closeProjectModal);
 
   if (projectModal) {
     projectModal.addEventListener('click', (e) => {
@@ -469,6 +474,33 @@
       e.stopPropagation();
       updateMainImage(currentImageIndex + 1);
     });
+  }
+
+  // Touch swipe gesture support for mobile gallery
+  const modalMainImgContainer = document.querySelector('.project-modal-main-img-container');
+  if (modalMainImgContainer) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    modalMainImgContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    modalMainImgContainer.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+        if (diffX < 0) {
+          updateMainImage(currentImageIndex + 1);
+        } else {
+          updateMainImage(currentImageIndex - 1);
+        }
+      }
+    }, { passive: true });
   }
 
   // ── KEYBOARD NAVIGATION & ESCAPE HANDLER FOR ALL MODALS ──
