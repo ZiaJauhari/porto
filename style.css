@@ -904,7 +904,8 @@ a.profile-contact-item:hover {
   transition: transform var(--transition-fast);
 }
 
-.featured-card:hover .action-link {
+.featured-card:hover .action-link,
+.compact-card:hover .action-link {
   transform: translateX(4px);
 }
 

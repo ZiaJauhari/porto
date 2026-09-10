@@ -312,7 +312,25 @@
       date: "Januari – Mei 2026",
       desc: "Batuahlines.com adalah website profil perusahaan berskala internasional yang berfokus pada layanan ekspor komoditas unggulan. Situs ini dirancang dengan estetika profesional, struktur SEO yang teroptimasi, serta menyajikan katalog produk ekspor lengkap beserta formulir penawaran kerja sama mitra global.",
       images: [
-        "gambar/img-batuahlines.png"
+        "gambar/img-batuahlines.png",
+        "gambar/batuahlines (17).jpeg",
+        "gambar/batuahlines (16).jpeg",
+        "gambar/batuahlines (15).jpeg",
+        "gambar/batuahlines (14).jpeg",
+        "gambar/batuahlines (13).jpeg",
+        "gambar/batuahlines (12).jpeg",
+        "gambar/batuahlines (11).jpeg",
+        "gambar/batuahlines (10).jpeg",
+        "gambar/batuahlines (9).jpeg",
+        "gambar/batuahlines (8).jpeg",
+        "gambar/batuahlines (7).jpeg",
+        "gambar/batuahlines (6).jpeg",
+        "gambar/batuahlines (5).jpeg",
+        "gambar/batuahlines (4).jpeg",
+        "gambar/batuahlines (3).jpeg",
+        "gambar/batuahlines (2).jpeg",
+        "gambar/batuahlines (1).jpeg",
+        "gambar/batuahlines (18).jpeg"
       ]
     },
     lawfirm: {
