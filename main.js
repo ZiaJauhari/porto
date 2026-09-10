@@ -298,12 +298,27 @@
       ]
     },
     fisheries: {
-      title: "Fisheries — Katalog & Pemesanan",
+      title: "Fisheries.id — Katalog & Pemesanan",
       category: "Web · Perikanan",
       date: "Januari – Mei 2026",
-      desc: "Fisheries merupakan platform web katalog dan pemesanan produk perikanan yang dikembangkan menggunakan framework Laravel dan basis data MySQL. Proyek ini memfasilitasi nelayan serta distributor perikanan untuk mengelola katalog komoditas hasil laut secara terstruktur, menyediakan sistem pemesanan online yang efisien, serta menyajikan antarmuka modern yang responsif dan mudah digunakan.",
+      desc: "Fisheries (fisheries.id) merupakan platform web katalog dan pemesanan produk perikanan yang dikembangkan menggunakan framework Laravel dan basis data MySQL. Proyek ini memfasilitasi nelayan serta distributor perikanan untuk mengelola katalog komoditas hasil laut secara terstruktur, menyediakan sistem pemesanan online yang efisien, serta menyajikan antarmuka modern yang responsif dan mudah digunakan.",
+      link: "https://fisheries.id/",
       images: [
-        "gambar/img-fisheries.png"
+        "gambar/img-fisheries.png",
+        "gambar/fisheries (14).jpeg",
+        "gambar/fisheries (13).jpeg",
+        "gambar/fisheries (12).jpeg",
+        "gambar/fisheries (11).jpeg",
+        "gambar/fisheries (10).jpeg",
+        "gambar/fisheries (9).jpeg",
+        "gambar/fisheries (8).jpeg",
+        "gambar/fisheries (7).jpeg",
+        "gambar/fisheries (6).jpeg",
+        "gambar/fisheries (5).jpeg",
+        "gambar/fisheries (4).jpeg",
+        "gambar/fisheries (3).jpeg",
+        "gambar/fisheries (2).jpeg",
+        "gambar/fisheries (1).jpeg"
       ]
     },
     batuahlines: {
