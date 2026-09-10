@@ -301,7 +301,7 @@
       title: "Fisheries — Katalog & Pemesanan",
       category: "Web · Perikanan",
       date: "Januari – Mei 2026",
-      desc: "Fisheries merupakan platform web katalog produk perikanan yang terintegrasi dengan sistem pemesanan online berbasis web sederhana. Dikembangkan menggunakan PHP dan MySQL, proyek ini memudahkan nelayan dan distributor perikanan untuk memamerkan komoditas segar mereka secara terstruktur dan efisien.",
+      desc: "Fisheries merupakan platform web katalog dan pemesanan produk perikanan yang dikembangkan menggunakan framework Laravel dan basis data MySQL. Proyek ini memfasilitasi nelayan serta distributor perikanan untuk mengelola katalog komoditas hasil laut secara terstruktur, menyediakan sistem pemesanan online yang efisien, serta menyajikan antarmuka modern yang responsif dan mudah digunakan.",
       images: [
         "gambar/img-fisheries.png"
       ]
@@ -310,7 +310,7 @@
       title: "Batuahlines.com — Ekspor Internasional",
       category: "Web · Ekspor Internasional",
       date: "Januari – Mei 2026",
-      desc: "Batuahlines.com adalah website profil perusahaan berskala internasional yang berfokus pada layanan ekspor komoditas unggulan. Situs ini dirancang dengan estetika profesional, struktur SEO yang teroptimasi, serta menyajikan katalog produk ekspor lengkap beserta formulir penawaran kerja sama mitra global.",
+      desc: "Batuahlines.com adalah website profil perusahaan berskala internasional yang berfokus pada layanan ekspor komoditas unggulan. Dikembangkan menggunakan framework Laravel, situs ini dirancang dengan estetika profesional, struktur SEO yang teroptimasi, katalog produk ekspor interaktif, serta formulir penawaran kerja sama mitra global.",
       images: [
         "gambar/img-batuahlines.png",
         "gambar/batuahlines (17).jpeg",
