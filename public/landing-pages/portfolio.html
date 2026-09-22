@@ -888,6 +888,536 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   [data-rv]{ opacity:1 !important; transform:none !important; }
   .mask-line > span,.word{ opacity:1 !important; transform:none !important; }
 }
+
+/* ============================================================= PORTFOLIO PROJECTS GRID */
+.proj-grid-container {
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.proj-card {
+  position: relative;
+  border-radius: 14px;
+  background: rgba(10, 14, 18, 0.76);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s var(--ease-out), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.proj-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(223, 231, 224, 0.35);
+  box-shadow: 0 28px 64px -16px rgba(0, 0, 0, 0.88), 0 0 32px rgba(224, 35, 28, 0.15);
+}
+.proj-card.featured {
+  grid-column: span 6;
+}
+.proj-card.standard {
+  grid-column: span 4;
+}
+
+@media (max-width: 1080px) {
+  .proj-card.featured { grid-column: span 6; }
+  .proj-card.standard { grid-column: span 6; }
+  .proj-card.standard:last-child { grid-column: span 12; }
+}
+
+@media (max-width: 720px) {
+  .proj-grid { grid-template-columns: 1fr; gap: 18px; }
+  .proj-card.featured,
+  .proj-card.standard,
+  .proj-card.standard:last-child { grid-column: 1 / -1; }
+}
+
+/* Card Visuals */
+.proj-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #070a0e;
+}
+.proj-card.featured .proj-media {
+  aspect-ratio: 16 / 9.6;
+}
+.proj-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s var(--ease-out), filter 0.5s var(--ease);
+}
+.proj-card:hover .proj-img {
+  transform: scale(1.05);
+}
+.proj-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 7, 10, 0.05) 30%, rgba(5, 7, 10, 0.88) 100%);
+  pointer-events: none;
+}
+
+.proj-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  padding: 5px 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: rgba(5, 7, 10, 0.82);
+  border: 1px solid rgba(223, 231, 224, 0.2);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.proj-quick-link {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(5, 7, 10, 0.78);
+  border: 1px solid rgba(223, 231, 224, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bone);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s, color 0.3s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.proj-quick-link:hover {
+  background: var(--vermilion);
+  border-color: var(--vermilion);
+  color: #fff;
+  transform: scale(1.12);
+}
+
+.proj-info {
+  padding: clamp(18px, 1.8vw, 24px);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.proj-meta-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.proj-date-role {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 400;
+}
+.proj-jp-tag {
+  font-family: 'NotoJP', 'Onest', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(223, 231, 224, 0.45);
+}
+.proj-title {
+  font-size: clamp(17px, 1.35vw, 22px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin: 0 0 10px 0;
+  transition: color 0.3s;
+}
+.proj-card:hover .proj-title {
+  color: #fff;
+}
+.proj-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #9aa5a0;
+  margin: 0 0 16px 0;
+  flex: 1 1 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.proj-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.proj-pill {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(223, 231, 224, 0.06);
+  border: 1px solid rgba(223, 231, 224, 0.09);
+  color: var(--bone-dim);
+}
+.proj-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  margin-top: auto;
+}
+.proj-foot-cue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  font-weight: 500;
+  transition: color 0.3s, gap 0.3s;
+}
+.proj-card:hover .proj-foot-cue {
+  color: var(--ember);
+  gap: 12px;
+}
+.proj-foot-count {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* ============================================================= MODAL STYLES */
+.proj-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(14px, 2.5vw, 36px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease), visibility 0.35s;
+}
+.proj-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.proj-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 5, 8, 0.88);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+.proj-modal-dialog {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: min(1160px, 94vw);
+  max-height: min(90vh, 880px);
+  background: rgba(10, 14, 18, 0.96);
+  border: 1px solid rgba(223, 231, 224, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 35px 90px -20px rgba(0, 0, 0, 0.95), 0 0 40px rgba(224, 35, 28, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96) translateY(16px);
+  transition: transform 0.4s var(--ease-out);
+}
+.proj-modal.active .proj-modal-dialog {
+  transform: none;
+}
+.proj-modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(5, 7, 10, 0.7);
+  border: 1px solid rgba(223, 231, 224, 0.2);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s;
+}
+.proj-modal-close-btn:hover {
+  background: var(--vermilion);
+  border-color: var(--vermilion);
+  color: #fff;
+  transform: rotate(90deg);
+}
+.proj-modal-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
+  overflow-y: auto;
+  max-height: calc(min(90vh, 880px) - 2px);
+}
+@media (max-width: 900px) {
+  .proj-modal-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal Gallery */
+.proj-gal-pane {
+  background: #05070a;
+  padding: clamp(16px, 2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-right: 1px solid var(--line-soft);
+}
+@media (max-width: 900px) {
+  .proj-gal-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--line-soft);
+  }
+}
+.proj-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #020305;
+  border-radius: 10px;
+  border: 1px solid rgba(223, 231, 224, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proj-stage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+.proj-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(5, 7, 10, 0.75);
+  border: 1px solid rgba(223, 231, 224, 0.25);
+  color: var(--bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.proj-nav-arrow:hover {
+  background: var(--vermilion);
+  border-color: var(--vermilion);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+.proj-nav-prev { left: 12px; }
+.proj-nav-next { right: 12px; }
+
+.proj-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 4;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--bone);
+  background: rgba(5, 7, 10, 0.8);
+  border: 1px solid rgba(223, 231, 224, 0.2);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Modal Thumbnails */
+.proj-thumbs-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(223, 231, 224, 0.2) transparent;
+}
+.proj-thumbs-strip::-webkit-scrollbar {
+  height: 6px;
+}
+.proj-thumbs-strip::-webkit-scrollbar-thumb {
+  background: rgba(223, 231, 224, 0.2);
+  border-radius: 3px;
+}
+.proj-thumb {
+  flex: 0 0 76px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(223, 231, 224, 0.12);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.25s, border-color 0.25s, transform 0.25s;
+  background: #070a0e;
+}
+.proj-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.proj-thumb:hover {
+  opacity: 0.85;
+  border-color: rgba(223, 231, 224, 0.35);
+}
+.proj-thumb.active {
+  opacity: 1;
+  border-color: var(--vermilion);
+  box-shadow: 0 0 10px rgba(224, 35, 28, 0.4);
+  transform: scale(1.04);
+}
+
+/* Modal Details Pane */
+.proj-details-pane {
+  padding: clamp(20px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+}
+.proj-detail-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.proj-detail-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.proj-detail-date {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.proj-detail-title {
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+  margin: 0 0 6px 0;
+}
+.proj-detail-role {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--bone-dim);
+  margin-bottom: 18px;
+}
+.proj-detail-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line-soft);
+  margin-bottom: 18px;
+}
+.proj-detail-sec-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.proj-detail-desc {
+  font-size: 14px;
+  line-height: 1.72;
+  color: #b4bfb7;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
+.proj-detail-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 26px;
+}
+.proj-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.btn-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--vermilion);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 24px -6px rgba(224, 35, 28, 0.4);
+}
+.btn-live-link:hover {
+  background: var(--ember);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(255, 90, 60, 0.5);
+  color: #fff;
+}
+.btn-modal-close {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(223, 231, 224, 0.2);
+  color: var(--bone);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s;
+}
+.btn-modal-close:hover {
+  background: rgba(223, 231, 224, 0.08);
+  border-color: rgba(223, 231, 224, 0.4);
+}
+
 </style>
 </head>
 <body data-layout-hero="b" data-layout-story="b" data-layout-gallery="b"
@@ -1040,31 +1570,152 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   <div class="sec-head" data-rv="fade">
     <span class="k"><b>02</b> — Portofolio Proyek</span><span class="rule"></span><span class="k jp">作品集</span>
   </div>
-  <div class="cards" id="cards">
-    <article class="card" data-rv="up" data-view="0" data-cursor>
-      <div class="card-fr" data-frame>
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
-        <i class="glow" style="--gx:80.2%; --gy:23.9%; --gr:22%; --gt:6.1s; --gt2:9.7s; --gc1:rgba(255,142,108,.50); --gc2:rgba(212,56,38,.24)"></i>
-        <div class="card-lab"><b>Aksepta.com</b><span class="jp">スタートアップ</span></div>
-      </div>
-      <div class="card-meta"><span>Frontend &amp; UI/UX — 2026</span><span>01 / 03</span></div>
-    </article>
-    <article class="card" data-rv="up" data-view="1" data-cursor>
-      <div class="card-fr" data-frame>
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
-        <i class="glow glow--flame" style="--gx:70.5%; --gy:47.2%; --gr:14%; --gt:3.7s; --gt2:5.3s; --gc1:rgba(255,198,124,.62); --gc2:rgba(226,118,40,.30)"></i>
-        <div class="card-lab"><b>MVP Lawfirm</b><span class="jp">法律事務所</span></div>
-      </div>
-      <div class="card-meta"><span>Full-Stack Laravel — 2026</span><span>02 / 03</span></div>
-    </article>
-    <article class="card" data-rv="up" data-view="2" data-cursor>
-      <div class="card-fr" data-frame>
-                <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
-        <i class="glow" style="--gx:48.0%; --gy:16.8%; --gr:20%; --gt:7.3s; --gt2:11.2s; --gc1:rgba(255,138,104,.52); --gc2:rgba(208,54,36,.24)"></i>
-        <div class="card-lab"><b>Air Quality IoT</b><span class="jp">監視システム</span></div>
-      </div>
-      <div class="card-meta"><span>IoT &amp; Dashboard — 2025</span><span>03 / 03</span></div>
-    </article>
+  <div class="proj-grid-container">
+    <div class="proj-grid" id="proj-grid">
+      
+      <!-- CARD 1: AKSEPTA (Featured) -->
+      <article class="proj-card featured" data-project="aksepta" data-rv="up" data-cursor>
+        <div class="proj-media">
+          <img src="/gambar/img-aksepta.png" alt="Aksepta.com — Startup Website" loading="lazy" class="proj-img">
+          <div class="proj-badge">Web · Startup</div>
+          <a href="https://aksepta.com/" target="_blank" rel="noopener noreferrer" class="proj-quick-link" title="Kunjungi Website Aksepta.com" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+          </a>
+        </div>
+        <div class="proj-info">
+          <div class="proj-meta-row">
+            <span class="proj-date-role">Januari – Mei 2026 • Frontend &amp; UI/UX</span>
+            <span class="proj-jp-tag">スタートアップ</span>
+          </div>
+          <h3 class="proj-title">Aksepta.com — Startup Website</h3>
+          <p class="proj-desc">Pengembangan website startup komprehensif mulai dari analisis kebutuhan bisnis, perancangan UI/UX modern, hingga implementasi frontend responsif dan berkinerja tinggi.</p>
+          <div class="proj-tech-tags">
+            <span class="proj-pill">HTML5</span>
+            <span class="proj-pill">CSS Grid/Flexbox</span>
+            <span class="proj-pill">JavaScript</span>
+            <span class="proj-pill">UI/UX Design</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-foot-cue">Lihat Detail &amp; Galeri <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            <span class="proj-foot-count">9 Foto</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: MVP LAWFIRM (Featured) -->
+      <article class="proj-card featured" data-project="lawfirm" data-rv="up" data-cursor>
+        <div class="proj-media">
+          <img src="/gambar/img-mvp-lawfirm.png" alt="MVP Lawfirm — Portal Firma Hukum" loading="lazy" class="proj-img">
+          <div class="proj-badge">Web · Law Firm</div>
+          <a href="https://lime-ibis-885634.hostingersite.com/" target="_blank" rel="noopener noreferrer" class="proj-quick-link" title="Kunjungi Website MVP Lawfirm" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+          </a>
+        </div>
+        <div class="proj-info">
+          <div class="proj-meta-row">
+            <span class="proj-date-role">Januari – Mei 2026 • Full-Stack Development</span>
+            <span class="proj-jp-tag">法律事務所</span>
+          </div>
+          <h3 class="proj-title">MVP Lawfirm — Portal Firma Hukum</h3>
+          <p class="proj-desc">Website firma hukum profesional berstandar korporat dengan direktori layanan hukum, profil pengacara, portal artikel hukum terstruktur, dan fitur konsultasi online.</p>
+          <div class="proj-tech-tags">
+            <span class="proj-pill">Laravel</span>
+            <span class="proj-pill">PHP</span>
+            <span class="proj-pill">MySQL</span>
+            <span class="proj-pill">Tailwind CSS</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-foot-cue">Lihat Detail &amp; Galeri <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            <span class="proj-foot-count">9 Foto</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: FISHERIES.ID -->
+      <article class="proj-card standard" data-project="fisheries" data-rv="up" data-cursor>
+        <div class="proj-media">
+          <img src="/gambar/img-fisheries.png" alt="Fisheries.id — Katalog & Pemesanan" loading="lazy" class="proj-img">
+          <div class="proj-badge">Web · Perikanan</div>
+          <a href="https://fisheries.id/" target="_blank" rel="noopener noreferrer" class="proj-quick-link" title="Kunjungi Website Fisheries.id" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+          </a>
+        </div>
+        <div class="proj-info">
+          <div class="proj-meta-row">
+            <span class="proj-date-role">Jan – Mei 2026 • Full-Stack Laravel</span>
+            <span class="proj-jp-tag">水産プラットフォーム</span>
+          </div>
+          <h3 class="proj-title">Fisheries.id — Katalog &amp; Pemesanan</h3>
+          <p class="proj-desc">Platform web perikanan berbasis Laravel untuk manajemen katalog komoditas laut dan sistem alur pemesanan online yang efisien.</p>
+          <div class="proj-tech-tags">
+            <span class="proj-pill">Laravel</span>
+            <span class="proj-pill">PHP</span>
+            <span class="proj-pill">MySQL</span>
+            <span class="proj-pill">Bootstrap</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-foot-cue">Lihat Detail &amp; Galeri <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            <span class="proj-foot-count">15 Foto</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4: BATUAHLINES.COM -->
+      <article class="proj-card standard" data-project="batuahlines" data-rv="up" data-cursor>
+        <div class="proj-media">
+          <img src="/gambar/img-batuahlines.png" alt="Batuahlines.com — Perusahaan Ekspor" loading="lazy" class="proj-img">
+          <div class="proj-badge">Web · Ekspor</div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-meta-row">
+            <span class="proj-date-role">Jan – Mei 2026 • Web Developer</span>
+            <span class="proj-jp-tag">国際輸出</span>
+          </div>
+          <h3 class="proj-title">Batuahlines.com — Perusahaan Ekspor</h3>
+          <p class="proj-desc">Website profil perusahaan ekspor komoditas berskala internasional berbasis Laravel dengan katalog produk interaktif dan formulir kemitraan global.</p>
+          <div class="proj-tech-tags">
+            <span class="proj-pill">Laravel</span>
+            <span class="proj-pill">PHP</span>
+            <span class="proj-pill">MySQL</span>
+            <span class="proj-pill">Tailwind CSS</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-foot-cue">Lihat Detail &amp; Galeri <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            <span class="proj-foot-count">19 Foto</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: AIR QUALITY MONITORING -->
+      <article class="proj-card standard" data-project="monitoring" data-rv="up" data-cursor>
+        <div class="proj-media">
+          <img src="/gambar/img-monitoring.png" alt="Air Quality Monitoring System" loading="lazy" class="proj-img">
+          <div class="proj-badge">IoT · Hardware</div>
+          <a href="https://monitoringudara.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-quick-link" title="Kunjungi Website Monitoring Udara" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+          </a>
+        </div>
+        <div class="proj-info">
+          <div class="proj-meta-row">
+            <span class="proj-date-role">Oktober 2025 • IoT Hardware</span>
+            <span class="proj-jp-tag">環境モニタリング</span>
+          </div>
+          <h3 class="proj-title">Air Quality Monitoring System</h3>
+          <p class="proj-desc">Sistem IoT pemantauan dan kontrol kualitas udara smoking room dengan integrasi sensor fisik serta dashboard web monitoring real-time.</p>
+          <div class="proj-tech-tags">
+            <span class="proj-pill">IoT Hardware</span>
+            <span class="proj-pill">Sensor Integration</span>
+            <span class="proj-pill">Web Dashboard</span>
+            <span class="proj-pill">Vercel</span>
+          </div>
+          <div class="proj-foot">
+            <span class="proj-foot-cue">Lihat Detail &amp; Galeri <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg></span>
+            <span class="proj-foot-count">Live IoT</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
@@ -1207,6 +1858,63 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
 <div id="fg-sky" aria-hidden="true"></div>
 
 <div class="rail" id="rail"></div>
+
+<!-- ============================================ PROJECT DETAIL & GALLERY MODAL -->
+<div id="proj-modal" class="proj-modal" aria-hidden="true" role="dialog" aria-labelledby="proj-modal-title">
+  <div class="proj-modal-backdrop" id="proj-modal-backdrop"></div>
+  <div class="proj-modal-dialog">
+    <button class="proj-modal-close-btn" id="proj-modal-close-btn" aria-label="Tutup Detail Proyek">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="proj-modal-content">
+      <!-- Left side: Gallery -->
+      <div class="proj-gal-pane">
+        <div class="proj-stage" id="proj-stage">
+          <button class="proj-nav-arrow proj-nav-prev" id="proj-nav-prev" aria-label="Gambar Sebelumnya">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <img id="proj-modal-main-img" src="" alt="Screenshot Proyek" />
+          <button class="proj-nav-arrow proj-nav-next" id="proj-nav-next" aria-label="Gambar Berikutnya">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+          <span class="proj-counter" id="proj-counter">1 / 1</span>
+        </div>
+        <div class="proj-thumbs-strip" id="proj-thumbs-strip"></div>
+      </div>
+      <!-- Right side: Info Details -->
+      <div class="proj-details-pane">
+        <div class="proj-detail-badge-row">
+          <span class="proj-detail-badge" id="proj-modal-badge">Web · Startup</span>
+          <span class="proj-detail-date" id="proj-modal-date">Januari – Mei 2026</span>
+        </div>
+        <h3 class="proj-detail-title" id="proj-modal-title">Nama Proyek</h3>
+        <div class="proj-detail-role" id="proj-modal-role">Frontend &amp; UI/UX</div>
+        <div class="proj-detail-divider"></div>
+        <div class="proj-detail-sec-title">Deskripsi Proyek</div>
+        <p class="proj-detail-desc" id="proj-modal-desc"></p>
+        <div class="proj-detail-sec-title">Teknologi &amp; Tools</div>
+        <div class="proj-detail-tech-list" id="proj-modal-tech"></div>
+        <div class="proj-modal-actions">
+          <a id="proj-modal-live-link" href="" target="_blank" rel="noopener noreferrer" class="btn-live-link">
+            <span>Kunjungi Website Live</span>
+            <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.4"/></svg>
+          </a>
+          <button type="button" class="btn-modal-close" id="btn-modal-close">
+            <span>Tutup</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="secret-pathways-assets/three.min.js"></script>
 <script>
@@ -4780,5 +5488,292 @@ if (document.readyState === 'complete' || document.readyState === 'interactive')
 else addEventListener('DOMContentLoaded', boot);
 })();
 </script>
+
+<!-- ============================================ PROJECT MODAL CONTROLLER -->
+<script>
+(function() {
+  'use strict';
+  const projectsData = {
+    aksepta: {
+      title: "Aksepta.com — Startup Website",
+      category: "Web · Startup",
+      jp: "スタートアップ",
+      role: "Frontend & UI/UX Specialist",
+      date: "Januari – Mei 2026",
+      summary: "Pengembangan website startup komprehensif mulai dari analisis kebutuhan bisnis, perancangan UI/UX modern, hingga implementasi frontend responsif dan berkinerja tinggi.",
+      desc: "Aksepta.com adalah platform startup inovatif yang dirancang untuk menjembatani kebutuhan bisnis modern. Website ini dikembangkan dari awal dengan fokus utama pada perancangan UI/UX yang modern, responsif, dan interaktif menggunakan standar web modern. Dilengkapi dengan navigasi yang halus, tata letak yang bersih, serta performa tinggi guna memaksimalkan kenyamanan pengguna.",
+      link: "https://aksepta.com/",
+      tech: ["HTML5", "CSS Grid/Flexbox", "JavaScript (ES6+)", "UI/UX Design", "Responsive Design"],
+      images: [
+        "/gambar/img-aksepta.png",
+        "/gambar/aksepta (1).png",
+        "/gambar/aksepta (2).png",
+        "/gambar/aksepta (3).png",
+        "/gambar/aksepta (4).png",
+        "/gambar/aksepta (5).png",
+        "/gambar/aksepta (6).png",
+        "/gambar/aksepta (7).png",
+        "/gambar/aksepta (8).png"
+      ]
+    },
+    lawfirm: {
+      title: "MVP Lawfirm — Portal Firma Hukum",
+      category: "Web · Law Firm",
+      jp: "法律事務所",
+      role: "Full-Stack Development",
+      date: "Januari – Mei 2026",
+      summary: "Website firma hukum profesional berstandar korporat dengan direktori layanan hukum, profil pengacara, portal artikel hukum terstruktur, dan fitur konsultasi online.",
+      desc: "MVP Lawfirm adalah situs web profesional untuk firma hukum modern. Dikembangkan dengan arsitektur Laravel, sistem ini memuat profil pengacara, bidang spesialisasi hukum, artikel edukasi hukum, serta formulir konsultasi online bagi calon klien.",
+      link: "https://lime-ibis-885634.hostingersite.com/",
+      tech: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "RESTful Architecture"],
+      images: [
+        "/gambar/img-mvp-lawfirm.png",
+        "/gambar/law firm (1).png",
+        "/gambar/law firm (2).png",
+        "/gambar/law firm (3).png",
+        "/gambar/law firm (4).png",
+        "/gambar/law firm (5).png",
+        "/gambar/law firm (6).png",
+        "/gambar/law firm (7).png",
+        "/gambar/law firm (8).png"
+      ]
+    },
+    fisheries: {
+      title: "Fisheries.id — Katalog & Pemesanan",
+      category: "Web · Perikanan",
+      jp: "水産プラットフォーム",
+      role: "Full-Stack Laravel Developer",
+      date: "Januari – Mei 2026",
+      summary: "Platform web perikanan berbasis Laravel untuk manajemen katalog komoditas laut dan sistem alur pemesanan online yang efisien.",
+      desc: "Fisheries (fisheries.id) merupakan platform web katalog dan pemesanan produk perikanan yang dikembangkan menggunakan framework Laravel dan basis data MySQL. Proyek ini memfasilitasi nelayan serta distributor perikanan untuk mengelola katalog komoditas hasil laut secara terstruktur, menyediakan sistem pemesanan online yang efisien, serta menyajikan antarmuka modern yang responsif dan mudah digunakan.",
+      link: "https://fisheries.id/",
+      tech: ["Laravel", "PHP", "MySQL", "Bootstrap / CSS", "Order Management"],
+      images: [
+        "/gambar/img-fisheries.png",
+        "/gambar/fisheries (1).jpeg",
+        "/gambar/fisheries (2).jpeg",
+        "/gambar/fisheries (3).jpeg",
+        "/gambar/fisheries (4).jpeg",
+        "/gambar/fisheries (5).jpeg",
+        "/gambar/fisheries (6).jpeg",
+        "/gambar/fisheries (7).jpeg",
+        "/gambar/fisheries (8).jpeg",
+        "/gambar/fisheries (9).jpeg",
+        "/gambar/fisheries (10).jpeg",
+        "/gambar/fisheries (11).jpeg",
+        "/gambar/fisheries (12).jpeg",
+        "/gambar/fisheries (13).jpeg",
+        "/gambar/fisheries (14).jpeg"
+      ]
+    },
+    batuahlines: {
+      title: "Batuahlines.com — Perusahaan Ekspor",
+      category: "Web · Ekspor Internasional",
+      jp: "国際輸出",
+      role: "Web Developer",
+      date: "Januari – Mei 2026",
+      summary: "Website profil perusahaan ekspor komoditas berskala internasional berbasis Laravel dengan katalog produk interaktif dan formulir kemitraan global.",
+      desc: "Batuahlines.com adalah website profil perusahaan berskala internasional yang berfokus pada layanan ekspor komoditas unggulan. Dikembangkan menggunakan framework Laravel, situs ini dirancang dengan estetika profesional, struktur SEO yang teroptimasi, katalog produk ekspor interaktif, serta formulir penawaran kerja sama mitra global.",
+      link: null,
+      tech: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "SEO Optimization"],
+      images: [
+        "/gambar/img-batuahlines.png",
+        "/gambar/batuahlines (1).jpeg",
+        "/gambar/batuahlines (2).jpeg",
+        "/gambar/batuahlines (3).jpeg",
+        "/gambar/batuahlines (4).jpeg",
+        "/gambar/batuahlines (5).jpeg",
+        "/gambar/batuahlines (6).jpeg",
+        "/gambar/batuahlines (7).jpeg",
+        "/gambar/batuahlines (8).jpeg",
+        "/gambar/batuahlines (9).jpeg",
+        "/gambar/batuahlines (10).jpeg",
+        "/gambar/batuahlines (11).jpeg",
+        "/gambar/batuahlines (12).jpeg",
+        "/gambar/batuahlines (13).jpeg",
+        "/gambar/batuahlines (14).jpeg",
+        "/gambar/batuahlines (15).jpeg",
+        "/gambar/batuahlines (16).jpeg",
+        "/gambar/batuahlines (17).jpeg",
+        "/gambar/batuahlines (18).jpeg"
+      ]
+    },
+    monitoring: {
+      title: "Air Quality Monitoring System",
+      category: "IoT · Hardware Integration",
+      jp: "環境モニタリング",
+      role: "IoT Project Developer",
+      date: "Oktober 2025",
+      summary: "Sistem IoT pemantauan dan kontrol kualitas udara smoking room dengan integrasi sensor fisik serta dashboard web monitoring real-time.",
+      desc: "Sistem pemantauan dan kontrol kualitas udara pada smoking room berbasis Internet of Things (IoT). Mengintegrasikan sensor perangkat keras dengan dashboard pemantauan digital real-time untuk pemantauan kualitas udara secara otomatis.",
+      link: "https://monitoringudara.vercel.app/",
+      tech: ["IoT Hardware", "Sensor Integration", "Dashboard Web", "Real-Time Monitoring", "Vercel"],
+      images: [
+        "/gambar/img-monitoring.png"
+      ]
+    }
+  };
+
+  const modal = document.getElementById('proj-modal');
+  const modalBackdrop = document.getElementById('proj-modal-backdrop');
+  const closeBtn = document.getElementById('proj-modal-close-btn');
+  const secondaryCloseBtn = document.getElementById('btn-modal-close');
+  const mainImg = document.getElementById('proj-modal-main-img');
+  const prevBtn = document.getElementById('proj-nav-prev');
+  const nextBtn = document.getElementById('proj-nav-next');
+  const counterEl = document.getElementById('proj-counter');
+  const thumbsContainer = document.getElementById('proj-thumbs-strip');
+  const titleEl = document.getElementById('proj-modal-title');
+  const badgeEl = document.getElementById('proj-modal-badge');
+  const dateEl = document.getElementById('proj-modal-date');
+  const roleEl = document.getElementById('proj-modal-role');
+  const descEl = document.getElementById('proj-modal-desc');
+  const techContainer = document.getElementById('proj-modal-tech');
+  const liveLink = document.getElementById('proj-modal-live-link');
+  const stageEl = document.getElementById('proj-stage');
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function setIndex(idx) {
+    if (!currentImages.length) return;
+    currentIndex = (idx + currentImages.length) % currentImages.length;
+    mainImg.style.opacity = '0';
+    mainImg.style.transform = 'scale(0.98)';
+    setTimeout(function() {
+      mainImg.src = currentImages[currentIndex];
+      mainImg.style.opacity = '1';
+      mainImg.style.transform = 'scale(1)';
+    }, 120);
+
+    counterEl.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+
+    const thumbs = thumbsContainer.querySelectorAll('.proj-thumb');
+    thumbs.forEach(function(t, i) {
+      if (i === currentIndex) {
+        t.classList.add('active');
+        t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        t.classList.remove('active');
+      }
+    });
+  }
+
+  function openModal(key) {
+    const p = projectsData[key];
+    if (!p || !modal) return;
+
+    titleEl.textContent = p.title;
+    badgeEl.textContent = p.category;
+    dateEl.textContent = p.date;
+    roleEl.textContent = p.role;
+    descEl.textContent = p.desc;
+
+    // Tech tags
+    techContainer.innerHTML = '';
+    (p.tech || []).forEach(function(t) {
+      const span = document.createElement('span');
+      span.className = 'proj-pill';
+      span.textContent = t;
+      techContainer.appendChild(span);
+    });
+
+    // Live link
+    if (p.link) {
+      liveLink.href = p.link;
+      liveLink.style.display = 'inline-flex';
+    } else {
+      liveLink.style.display = 'none';
+    }
+
+    // Images
+    currentImages = p.images || [];
+    currentIndex = 0;
+
+    if (currentImages.length <= 1) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      thumbsContainer.style.display = 'none';
+    } else {
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+      thumbsContainer.style.display = 'flex';
+    }
+
+    thumbsContainer.innerHTML = '';
+    currentImages.forEach(function(src, idx) {
+      const thumb = document.createElement('div');
+      thumb.className = 'proj-thumb' + (idx === 0 ? ' active' : '');
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = p.title + ' thumbnail ' + (idx + 1);
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      thumb.addEventListener('click', function() { setIndex(idx); });
+      thumbsContainer.appendChild(thumb);
+    });
+
+    if (currentImages.length > 0) {
+      mainImg.src = currentImages[0];
+      mainImg.style.opacity = '1';
+      mainImg.style.transform = 'scale(1)';
+      counterEl.textContent = '1 / ' + currentImages.length;
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.proj-card[data-project]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      const key = card.getAttribute('data-project');
+      if (key) openModal(key);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (secondaryCloseBtn) secondaryCloseBtn.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+  if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); setIndex(currentIndex - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); setIndex(currentIndex + 1); });
+
+  // Keyboard navigation
+  window.addEventListener('keydown', function(e) {
+    if (!modal || !modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') setIndex(currentIndex - 1);
+    if (e.key === 'ArrowRight') setIndex(currentIndex + 1);
+  });
+
+  // Touch swipe support for stage
+  if (stageEl) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    stageEl.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    stageEl.addEventListener('touchend', function(e) {
+      const diffX = e.changedTouches[0].screenX - touchStartX;
+      const diffY = e.changedTouches[0].screenY - touchStartY;
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) setIndex(currentIndex + 1);
+        else setIndex(currentIndex - 1);
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
 </body>
 </html>
