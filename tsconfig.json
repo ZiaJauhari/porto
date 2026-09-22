@@ -19,11 +19,24 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
 
     "baseUrl": ".",
     "paths": {
       "@designcodeio/threeui": ["src/shaders/landing-pages/LandingPages.tsx"],
-      "@designcodeio/threeui/*": ["src/shaders/*"]
+      "@designcodeio/threeui/*": ["src/shaders/*"],
+      "../sylva-living-world/sources/inner-green-3d.html": ["src/shaders/landing-pages/stub.d.ts"],
+      "../tidecrest-hero/tidecrestDocument.js": ["src/shaders/landing-pages/stub.d.ts"],
+      "../meridian-landing-page/meridianDocument.js": ["src/shaders/landing-pages/stub.d.ts"],
+      "../ascii-field/asciiFieldDocuments.js": ["src/shaders/landing-pages/stub.d.ts"],
+      "../betawise-globe/betawiseGlobeDocument.js": ["src/shaders/landing-pages/stub.d.ts"],
+      "../axonis-field/axonis-arbor.html": ["src/shaders/landing-pages/stub.d.ts"],
+      "../axonis-field/axonis-vortex.html": ["src/shaders/landing-pages/stub.d.ts"],
+      "../axonis-field/axonis-tide.html": ["src/shaders/landing-pages/stub.d.ts"],
+      "../axonis-field/axonis-dune.html": ["src/shaders/landing-pages/stub.d.ts"],
+      "../nocturne-hero/NocturneScene": ["src/shaders/landing-pages/stub.d.ts"],
+      "./sandboxedPageDocument": ["src/shaders/landing-pages/stub.d.ts"],
+      "../sylva-living-world/SylvaLivingWorldScene": ["src/shaders/landing-pages/stub.d.ts"]
     }
   },
   "include": ["src"]
