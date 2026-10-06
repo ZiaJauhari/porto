@@ -39,5 +39,5 @@
       "../sylva-living-world/SylvaLivingWorldScene": ["src/shaders/landing-pages/stub.d.ts"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }

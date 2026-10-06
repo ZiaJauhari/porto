@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
+import { fileURLToPath, URL } from "node:url";
 
 const stubPlugin = () => {
   return {
@@ -51,8 +51,8 @@ export default defineConfig({
   plugins: [stubPlugin(), react()],
   resolve: {
     alias: {
-      "@designcodeio/threeui/style.css": path.resolve(__dirname, "src/shaders/threeui.css"),
-      "@designcodeio/threeui": path.resolve(__dirname, "src/shaders/landing-pages/LandingPages.tsx"),
+      "@designcodeio/threeui/style.css": fileURLToPath(new URL("./src/shaders/threeui.css", import.meta.url)),
+      "@designcodeio/threeui": fileURLToPath(new URL("./src/shaders/landing-pages/LandingPages.tsx", import.meta.url)),
     },
   },
   server: {
