@@ -637,7 +637,7 @@ body[data-layout-footer="b"] .foot-brand p{
 body[data-layout-footer="b"] .foot-grid > div:nth-child(n+3){
   padding-left:clamp(18px,2.2vw,34px); border-left:1px solid var(--line-soft);
 }
-body[data-layout-footer="b"] .foot-base{ display:grid; grid-template-columns:1fr auto 1fr; }
+body[data-layout-footer="b"] .foot-base{ display:flex; justify-content:space-between; align-items:center; }
 body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
 
 /* ================================================= foreground layers (KAGE)
@@ -1437,7 +1437,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <path d="M6 12h32M9.5 17h25M22 8v28" stroke="#dfe7e0" stroke-width="1.2"/>
       </svg>
     </div>
-    <div class="pre-jp jp">技術と創造</div>
     <div class="pre-bar"><i id="pre-fill"></i></div>
     <div class="pre-meta">
       <span>Memuat portofolio</span><b><span id="pre-pct">0</span>%</b>
@@ -1456,10 +1455,10 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <span class="brand-tx"><b>ZJJ.</b><i>ZIA JAUHARI JUANDA</i></span>
   </a>
   <nav class="nav-links" id="navlinks">
-    <a class="nav-link" href="#gate" data-cursor><span>Tentang</span><span class="alt">プロフィール</span></a>
-    <a class="nav-link" href="#pathways" data-cursor><span>Proyek</span><span class="alt">作品集</span></a>
-    <a class="nav-link" href="#lessons" data-cursor><span>Keahlian</span><span class="alt">技術</span></a>
-    <a class="nav-link" href="#eternity" data-cursor><span>Kontak</span><span class="alt">連絡</span></a>
+    <a class="nav-link" href="#gate" data-cursor><span>Tentang</span><span class="alt">Tentang</span></a>
+    <a class="nav-link" href="#pathways" data-cursor><span>Proyek</span><span class="alt">Proyek</span></a>
+    <a class="nav-link" href="#lessons" data-cursor><span>Keahlian</span><span class="alt">Keahlian</span></a>
+    <a class="nav-link" href="#eternity" data-cursor><span>Kontak</span><span class="alt">Kontak</span></a>
   </nav>
   <button class="nav-burger" aria-label="Menu" data-cursor><i></i><i></i></button>
 </header>
@@ -1499,14 +1498,10 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
          runs on down behind the caption instead of stopping at the frame -->
     <span class="peek-fr" data-frame></span>
     <span class="peek-play"><svg viewBox="0 0 22 22" fill="none"><path d="M8 5.6 16.4 11 8 16.4z" fill="#dfe7e0"/></svg></span>
-    <span class="peek-cap"><b class="jp">作品</b><i>Lihat proyek unggulan</i></span>
+    <span class="peek-cap"><i>Lihat proyek unggulan</i></span>
   </a>
 
   <div class="word-fb" aria-hidden="true"></div>
-
-  <div class="hero-side" data-rv="up">
-    <span class="v jp">技術と創造</span>
-  </div>
 </section>
 
 <!-- ============================================================ chapter I -->
@@ -1524,7 +1519,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </span>
   </div>
   <div class="sec-head" data-rv="fade">
-    <span class="k"><b>01</b> — Tentang Saya</span><span class="rule"></span><span class="k jp">プロフィール</span>
+    <span class="k"><b>01</b> — Tentang Saya</span><span class="rule"></span>
   </div>
   <div class="gate-grid">
     <h2 class="display h-sec" data-rv="up">Kode bersih, desain intuitif, solusi yang bertahan.</h2>
@@ -1568,7 +1563,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </span>
   </div>
   <div class="sec-head" data-rv="fade">
-    <span class="k"><b>02</b> — Portofolio Proyek</span><span class="rule"></span><span class="k jp">作品集</span>
+    <span class="k"><b>02</b> — Portofolio Proyek</span><span class="rule"></span>
   </div>
   <div class="proj-grid-container">
     <div class="proj-grid" id="proj-grid">
@@ -1585,7 +1580,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="proj-info">
           <div class="proj-meta-row">
             <span class="proj-date-role">Januari – Mei 2026 • Frontend &amp; UI/UX</span>
-            <span class="proj-jp-tag">スタートアップ</span>
           </div>
           <h3 class="proj-title">Aksepta.com — Startup Website</h3>
           <p class="proj-desc">Pengembangan website startup komprehensif mulai dari analisis kebutuhan bisnis, perancangan UI/UX modern, hingga implementasi frontend responsif dan berkinerja tinggi.</p>
@@ -1614,7 +1608,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="proj-info">
           <div class="proj-meta-row">
             <span class="proj-date-role">Januari – Mei 2026 • Full-Stack Development</span>
-            <span class="proj-jp-tag">法律事務所</span>
           </div>
           <h3 class="proj-title">MVP Lawfirm — Portal Firma Hukum</h3>
           <p class="proj-desc">Website firma hukum profesional berstandar korporat dengan direktori layanan hukum, profil pengacara, portal artikel hukum terstruktur, dan fitur konsultasi online.</p>
@@ -1643,7 +1636,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="proj-info">
           <div class="proj-meta-row">
             <span class="proj-date-role">Jan – Mei 2026 • Full-Stack Laravel</span>
-            <span class="proj-jp-tag">水産プラットフォーム</span>
           </div>
           <h3 class="proj-title">Fisheries.id — Katalog &amp; Pemesanan</h3>
           <p class="proj-desc">Platform web perikanan berbasis Laravel untuk manajemen katalog komoditas laut dan sistem alur pemesanan online yang efisien.</p>
@@ -1669,7 +1661,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="proj-info">
           <div class="proj-meta-row">
             <span class="proj-date-role">Jan – Mei 2026 • Web Developer</span>
-            <span class="proj-jp-tag">国際輸出</span>
           </div>
           <h3 class="proj-title">Batuahlines.com — Perusahaan Ekspor</h3>
           <p class="proj-desc">Website profil perusahaan ekspor komoditas berskala internasional berbasis Laravel dengan katalog produk interaktif dan formulir kemitraan global.</p>
@@ -1698,7 +1689,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <div class="proj-info">
           <div class="proj-meta-row">
             <span class="proj-date-role">Oktober 2025 • IoT Hardware</span>
-            <span class="proj-jp-tag">環境モニタリング</span>
           </div>
           <h3 class="proj-title">Air Quality Monitoring System</h3>
           <p class="proj-desc">Sistem IoT pemantauan dan kontrol kualitas udara smoking room dengan integrasi sensor fisik serta dashboard web monitoring real-time.</p>
@@ -1734,7 +1724,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </span>
   </div>
   <div class="sec-head" data-rv="fade">
-    <span class="k"><b>03</b> — Teknologi &amp; Keahlian</span><span class="rule"></span><span class="k jp">技術スタック</span>
+    <span class="k"><b>03</b> — Teknologi &amp; Keahlian</span><span class="rule"></span>
   </div>
   <div class="cur-head">
     <h2 class="display h-sec" data-rv="up">Full-stack. IoT. Modern web. Satu developer.</h2>
@@ -1744,31 +1734,31 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   <div class="cur" id="cur">
     <div class="les" data-les="0" data-cursor>
       <span class="k">01</span>
-      <h3>Frontend Development<em class="jp">フロントエンド</em></h3>
+      <h3>Frontend Development</h3>
       <p>HTML5, CSS3, JavaScript (ES6+), Responsive Web Design, UI/UX Principles, DOM Manipulation.</p>
       <span class="t">Expert</span><i class="bar"></i>
     </div>
     <div class="les" data-les="1" data-cursor>
       <span class="k">02</span>
-      <h3>Backend &amp; Framework<em class="jp">バックエンド</em></h3>
+      <h3>Backend &amp; Framework</h3>
       <p>PHP, Laravel, Python, MySQL, RESTful API Architecture, server-side logic &amp; database design.</p>
       <span class="t">Proficient</span><i class="bar"></i>
     </div>
     <div class="les" data-les="2" data-cursor>
       <span class="k">03</span>
-      <h3>IoT &amp; Hardware System<em class="jp">IoT統合</em></h3>
+      <h3>IoT &amp; Hardware System</h3>
       <p>Internet of Things, real-time monitoring dashboard, hardware sensor integration, jaringan komputer.</p>
       <span class="t">Applied</span><i class="bar"></i>
     </div>
     <div class="les" data-les="3" data-cursor>
       <span class="k">04</span>
-      <h3>Tools &amp; Workflow<em class="jp">開発環境</em></h3>
+      <h3>Tools &amp; Workflow</h3>
       <p>Git / GitHub, VS Code, Microsoft Office Suite, debugging tools, version control best practices.</p>
       <span class="t">Daily Use</span><i class="bar"></i>
     </div>
     <div class="les" data-les="4" data-cursor>
       <span class="k">05</span>
-      <h3>Soft Skills &amp; Collaboration<em class="jp">チームワーク</em></h3>
+      <h3>Soft Skills &amp; Collaboration</h3>
       <p>Kerja sama tim, manajemen proyek, komunikasi efektif, adaptasi cepat terhadap teknologi baru.</p>
       <span class="t">Strong</span><i class="bar"></i>
     </div>
@@ -1845,7 +1835,6 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   </div>
   <div class="foot-base">
     <span>© 2026 Zia Jauhari Juanda</span>
-    <span class="jp">技術と創造の間に</span>
     <span>WebGL · PHP · Laravel · IoT</span>
   </div>
 </footer>
@@ -5497,7 +5486,6 @@ else addEventListener('DOMContentLoaded', boot);
     aksepta: {
       title: "Aksepta.com — Startup Website",
       category: "Web · Startup",
-      jp: "スタートアップ",
       role: "Frontend & UI/UX Specialist",
       date: "Januari – Mei 2026",
       summary: "Pengembangan website startup komprehensif mulai dari analisis kebutuhan bisnis, perancangan UI/UX modern, hingga implementasi frontend responsif dan berkinerja tinggi.",
@@ -5519,7 +5507,6 @@ else addEventListener('DOMContentLoaded', boot);
     lawfirm: {
       title: "MVP Lawfirm — Portal Firma Hukum",
       category: "Web · Law Firm",
-      jp: "法律事務所",
       role: "Full-Stack Development",
       date: "Januari – Mei 2026",
       summary: "Website firma hukum profesional berstandar korporat dengan direktori layanan hukum, profil pengacara, portal artikel hukum terstruktur, dan fitur konsultasi online.",
@@ -5541,7 +5528,6 @@ else addEventListener('DOMContentLoaded', boot);
     fisheries: {
       title: "Fisheries.id — Katalog & Pemesanan",
       category: "Web · Perikanan",
-      jp: "水産プラットフォーム",
       role: "Full-Stack Laravel Developer",
       date: "Januari – Mei 2026",
       summary: "Platform web perikanan berbasis Laravel untuk manajemen katalog komoditas laut dan sistem alur pemesanan online yang efisien.",
@@ -5569,7 +5555,6 @@ else addEventListener('DOMContentLoaded', boot);
     batuahlines: {
       title: "Batuahlines.com — Perusahaan Ekspor",
       category: "Web · Ekspor Internasional",
-      jp: "国際輸出",
       role: "Web Developer",
       date: "Januari – Mei 2026",
       summary: "Website profil perusahaan ekspor komoditas berskala internasional berbasis Laravel dengan katalog produk interaktif dan formulir kemitraan global.",
@@ -5601,7 +5586,6 @@ else addEventListener('DOMContentLoaded', boot);
     monitoring: {
       title: "Air Quality Monitoring System",
       category: "IoT · Hardware Integration",
-      jp: "環境モニタリング",
       role: "IoT Project Developer",
       date: "Oktober 2025",
       summary: "Sistem IoT pemantauan dan kontrol kualitas udara smoking room dengan integrasi sensor fisik serta dashboard web monitoring real-time.",
